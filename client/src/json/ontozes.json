@@ -1,0 +1,11 @@
+{
+  "type": "button",
+  "multiple": "no",
+  "title": "Öntözés",
+  "level": ["Benjamin - Könnyű", "Kishód - Közepes"],
+  "description": ["Amikor a szelep zárva van, a víz nem tud átfolyni.","Amikor a szelep nyitva van, a víz átfolyik."],
+  "question": "A három szomjas virág közül melyik kap vizet, ha a szelepek így állnak?",
+  "mainImage": "src/img/ontozes/main.png",
+  "answerImages": ["src/img/ontozes/1.png","src/img/ontozes/2.png","src/img/ontozes/3.png"],
+  "answer":[1]
+}

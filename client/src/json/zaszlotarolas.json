@@ -1,0 +1,11 @@
+{
+  "type": "button",
+  "multiple": "no",
+  "title": "Zaszlótárolás",
+  "level": ["Senior - Nehéz"],
+  "description": ["A számítógépes képek képpontok soraiból állnak. Ha el akarjuk tárolni a képeket, a legegyszerűbb esetben minden ilyen képpont színét írjuk le.","A GIW (kitalált) formátummal a képeket össze tudjuk tömöríteni, azaz a kisebb helyen tudjuk tárolni. Ez (a tömörítés) így működik:","• Minden képpont-sor egyenként kerül leírásra.","• Minden színt három betűs rövidítéssel jelölünk.","• Azonos színű képpontok sorozatát egy zárójelbe írjuk, ami a szín rövidítését és az azonos színű képpontok számát tartalmazza.","Például a (zöl, 20)(feh,13) módon leírt képpont-sorban először 20 zöld, majd 13 fehér képpont szerepel.","Lejjebb négy képen zászlókat láthatsz. Mindegyik zászló képén négy-négy szín található és mindegyik zászló ugyanannyi képpontból áll. GIW formátumban szeretnék tárolni ezeket."],
+  "question": "Melyik zászló tárolásakor lesz a legnagyobb a GIW állomány?",
+  "mainImage": "",
+  "answerImages": ["src/img/zaszlotarolas/1.png","src/img/zaszlotarolas/2.png","src/img/zaszlotarolas/3.png","src/img/zaszlotarolas/4.png"],
+  "answer":[1]
+}

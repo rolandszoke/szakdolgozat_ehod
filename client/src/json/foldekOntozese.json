@@ -1,0 +1,11 @@
+{
+  "type": "checkbox",
+  "title": "Földek öntözése",
+  "level": ["Kadét - Közepes", "Junior - Könnyű"],
+  "description": ["A hódok a földjeik öntözéséhez egy kifinomult rendszert építettek ki.","A víz a tóból (képen fent) az 1-től 6-ig számozott földekhez folyik csatornákon keresztül. A csatornákban 4 elágazás van, ahol a hódok a vizet jobbra (->) vagy balra (<-) tudják terelni."],
+  "question": "Melyik elágazásban merre tereljék a vizet, hogy csak a 2., 4., 5. és 6. számmal jelölt földet öntözzék meg?",
+  "mainImage": "src/img/foldekOntozese/main.png",
+  "checkImages": ["src/img/foldekOntozese/check/1.png","src/img/foldekOntozese/check/2.png","src/img/foldekOntozese/check/3.png","src/img/foldekOntozese/check/4.png"],
+  "uncheckImages": ["src/img/foldekOntozese/uncheck/1.png","src/img/foldekOntozese/uncheck/2.png","src/img/foldekOntozese/uncheck/3.png","src/img/foldekOntozese/uncheck/4.png"],
+  "answer":[0,3]
+}

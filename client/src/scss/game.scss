@@ -1,0 +1,167 @@
+@import 'mixin.scss';
+@import 'colors.scss';
+
+.game {
+  display: inline-block;
+  position: relative;
+  left: 50%;
+  width: 800px;
+  height: 800px;
+  margin-top: 0;
+  z-index: 2;
+  transform: translate(-50%, 0%);
+  border-radius: 2vh;
+  text-align: center;
+  font: 700 16px 'Syncopate', sans-serif;
+  color: $white;
+  @include text-shadow-3d-small;
+  perspective: 1000px;
+  transition: all 0.5s;
+  @media (max-width: 740px) {
+    width: 97%;
+  }
+  @media (max-device-width: 740px) {
+    width: 97%;
+  }
+
+  .front,
+  .back {
+    display: table;
+    width: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    transition: transform 400ms;
+    transition-timing-function: linear;
+    border-radius: 10px;
+    box-shadow: 0 15px 80px -15px rgba(0, 0, 0, 0.3), 0 55px 50px -35px rgba(0, 0, 0, 0.3);
+  }
+
+  .front {
+    display: grid;
+    min-height: 800px;
+    //max-height: 850px;
+    transform: rotateY(0deg);
+    background: $background-app;
+    margin-bottom: 30px;
+    .game__board {
+      display: table-row;
+      p {
+        margin-top: 0;
+        margin-bottom: 15px;
+        line-height: 20px;
+        img {
+          position: relative;
+          top: 5px;
+        }
+      }
+    }
+    &.front--time {
+      animation: blueNeonSmall 1.5s ease-in-out infinite alternate;
+    }
+  }
+
+  .back {
+    height: 100%;
+    cursor: pointer;
+    transform: rotateY(180deg);
+    background: linear-gradient(to bottom right, #009970, #84DD63);
+    animation: greenNeon 1.5s ease-in-out infinite alternate;
+
+    &.back--wrong {
+      background: linear-gradient(to bottom right, #992020, #dd4347);
+      animation: redNeon 1.5s ease-in-out infinite alternate;
+    }
+
+    &.back--info {
+      background: linear-gradient(to bottom right, #1f7ddb, #6cb6db);
+      animation: blueNeon 1.5s ease-in-out infinite alternate;
+      p {
+        width: 80%;
+        padding: 20px;
+        font-size: 50px;
+        text-transform: uppercase;
+        @include text-shadow-3d-small;
+        line-height: 80px;
+      }
+    }
+
+    .back__text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      font-size: 550px;
+      margin: 0;
+      transform: translate(-50%, -50%);
+      text-shadow: none;
+
+    }
+
+  }
+  &.game--flip .front {
+    transform: rotateY(-180deg);
+  }
+  &.game--flip .back {
+    transform: rotateY(0deg);
+  }
+
+  .game__info {
+
+    img {
+      border-radius: 0.3em;
+      //box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
+      //background: $shadow--veryLight;
+      margin: 0 10px 10px;
+      max-width: 75%;
+      max-height: 270px;
+      transition: all 400ms;
+      &:hover {
+        //box-shadow: 0 5px 80px rgba(0, 0, 0, 0.5);
+        background: rgba($white,1);
+        transform: scale(1.4);
+      }
+    }
+
+    &__description {
+      margin: 0 30px;
+      padding: 9px;
+      text-align: left;
+      font-family: 'Roboto', Arial, sans-serif;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 1.2;
+      text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
+      p {
+        text-indent: 5px;
+        margin: 5px 5px;
+      }
+    }
+
+    &__basic {
+      position: relative;
+      background: rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      border-radius: 10px 10px 0 0;
+      padding-bottom: 10px;
+
+      .title {
+        display: inline-block;
+        margin-top: 20px;
+        text-transform: uppercase;
+      }
+
+      .level {
+        margin: 5px 10px;
+        text-transform: uppercase;
+      }
+    }
+
+    &__question {
+      font-family: 'Roboto', Arial, sans-serif;
+      text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
+      margin: 10px 35px;
+      text-transform: uppercase;
+    }
+
+  }
+
+}

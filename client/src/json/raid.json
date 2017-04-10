@@ -1,0 +1,11 @@
+{
+  "type": "button",
+  "multiple": "no",
+  "title": "RAID",
+  "level": ["Senior - Nehéz"],
+  "description": ["A RAID egy olyan technológia, amikor több merevlemezt kapcsolnak össze a közösen szervezett adattárolásért. Ennek célja (Raid-szint) lehet az adatbiztonság növelése vagy az adatok elérésének gyorsítása.","RAID0: az adatokat több (a képen 2) fizikai merevlemezre osztja szét. Ezzel növelve az adatok elérésének gyorsaságát. Ha az egyik merevlemez hibás lesz, az azon tárolt összes adat elérhetetlenné válik.","RAID1: Az adatok több merevlemezen kerülnek tárolásra úgy,  hogy a merevlemezek tartalma mindig azonos. Így kevesebb adat tárolható, nő a redundancia, de az adatbiztonság annál magasabb, minél több merevlemezen tároljuk ugyanazt az adatot. Egy adat mindaddig elérhető, amíg legalább egy merevlemezen elérhető marad."],
+  "question": "Az alábbi RAID-ek közül melyik az, amelyiken NEM történik adatvesztés akkor sem, ha két tetszőleges merevlemez tönkremegy?",
+  "mainImage": "src/img/raid/main.png",
+  "answerImages": ["src/img/raid/1.png","src/img/raid/2.png","src/img/raid/3.png","src/img/raid/4.png"],
+  "answer":[2]
+}

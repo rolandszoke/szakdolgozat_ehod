@@ -1,0 +1,369 @@
+@import 'mixin.scss';
+@import 'colors.scss';
+
+$menu-items: 9;
+
+@mixin sideButton($color) {
+  visibility: hidden;
+  &:checked ~ label {
+    background: $color;
+    box-shadow: 0 0 0 0 $color inset, 0 0 0 0 $color, 0 5px 0 0 darken($color, 7%);
+    &:hover {
+      box-shadow: 0 0 20px 0 $color inset, 0 0 30px 0 $color, 0 5px 0 0 darken($color, 7%);
+    }
+    &:active {
+      transform: translate3d(0, 2px, 0);
+      background: rgba($color, 0.3);
+      box-shadow: 0 2px 20px 0 $color inset, 0 2px 30px 0 $color, 0 3px 0 0 darken(rgba($color, 0.3), 30%);
+    }
+  }
+  & ~ label {
+    background: $shadow;
+    box-shadow: 0 0 0 0 $color inset, 0 0 0 0 $color, 0 5px 0 0 darken($shadow, 10%);
+    &:hover {
+      box-shadow: 0 0 20px 0 $color inset, 0 0 30px 0 $color, 0 5px 0 0 darken($shadow, 7%);
+    }
+    &:active {
+      transform: translate3d(0, 2px, 0);
+      background: rgba($color, 0.3);
+      box-shadow: 0 2px 20px 0 $color inset, 0 2px 30px 0 $color, 0 3px 0 0 darken(rgba($color, 0.3), 30%);
+    }
+  }
+}
+
+.nav {
+  display: inline-block;
+  @media (min-width: 1050px) {
+    display: inline-block;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    z-index: 3;
+  }
+
+  &__info {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    transform: translate(-50%, 0%);
+    z-index: 3;
+    color: white;
+    font-family: 'Roboto', Arial, sans-serif;
+
+    @media (max-width: 1050px) {
+      left: 50%;
+      z-index: 99;
+    }
+
+    $infoH: 600;
+
+    input {
+      position: absolute;
+      transform: translate(-50%, 0%);
+      top: 0;
+      left: 0;
+      height: 30px;
+      width: 60px;
+      margin: 0;
+      z-index: 6;
+      cursor: pointer;
+      opacity: 0;
+
+      &:hover ~ label {
+        top: 0;
+        color: $white;
+        opacity: 1;
+        background: $green;
+        animation: greenNeon 1.5s ease-in-out infinite alternate;
+      }
+
+      &:checked {
+        top: $infoH;
+
+        & ~ label {
+          top: $infoH;
+          background: $red;
+          color: rgba(0,0,0,0);
+          opacity: 1;
+          animation: redNeon 1.5s ease-in-out infinite alternate;
+        }
+
+        & ~ .nav__info__text {
+          top: 0;
+          box-shadow: 0 15px 80px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        & ~ .blur {
+          position: fixed;
+          width: 100vw;
+          height: 100vh;
+          background: $shadow;
+          z-index: 4;
+          transform: translate(-50%, 0%);
+        }
+      }
+    }
+
+    label {
+      position: absolute;
+      left: 50%;
+      top: -20px;
+      height: 25px;
+      width: 60px;
+      padding-top: 5px;
+      background: $shadow--dark;
+      border-radius: 0 0 10px 10px;
+      text-align: center;
+      color: rgba(0,0,0,0);
+      user-select: none;
+      transform: translate(-50%, 0%);
+      opacity: 0.4;
+      transition: all 500ms;
+      z-index: 5;
+    }
+
+    &__text {
+      position: absolute;
+      left: 50%;
+      top: -$infoH;
+      width: 600px;
+      height: $infoH;
+      background: $shadow--dark;
+      border-radius: 0 0 20px 20px;
+      transform: translate(-50%, 0%);
+      transition: all 500ms;
+      z-index: 10;
+
+      p {
+        margin: 0;
+        padding: 15px;
+        text-indent: 5px;
+        text-align: left;
+        font-size: 15px;
+        line-height: 1.3;
+        text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
+      }
+
+    }
+  }
+}
+
+.menu {
+  position: absolute;
+  display: inline-table;
+  //z-index: 3;
+  top: -10px;
+  width: 125px;
+  height: 100%;
+  box-sizing: border-box;
+  text-align: left;
+  list-style: none;
+  user-select: none;
+  text-shadow: 0 2px 4px $shadow--light;
+
+  &--left {
+    padding-left: 80px;
+    left: 0;
+    @media (min-width: 1050px) {
+      left: -540px;
+    }
+    @media (max-width: 1050px) {
+      .menu__open:checked ~ .menu__bg {
+        height: 860px;
+        width: 90px;
+        left: 12px;
+        .menu__bg__separator {
+          position: relative;
+          top: 337px;
+          width: 100%;
+          height: 10px;
+          background: $shadow--light;
+        }
+      }
+    }
+  }
+
+  &--right {
+    padding-right: 80px;
+    right: 0;
+    @media (min-width: 1050px) {
+      right: -540px;
+    }
+    @media (max-width: 1050px) {
+      .menu__open:checked ~ .menu__bg {
+        height: 340px;
+        width: 90px;
+        left: 12px;
+      }
+    }
+  }
+
+  &--hidden {
+    opacity: 0.5;
+    .menu__open {
+      cursor: not-allowed;
+      &:checked ~ .menu__bg {
+        height: 0;
+        width: 0;
+      }
+    }
+  }
+
+}
+
+.menu__bg {
+  @media (max-width: 1050px) {
+    position: absolute;
+    z-index: 3;
+    left: 20px;
+    top: 25px;
+    border-radius: 60px;
+    width: 75px;
+    height: 75px;
+    background: $turquoise;
+    transition: all 400ms;
+    box-shadow: 0 2px 30px 0 $shadow;
+
+    &__separator {
+      top:0;
+      transition: all 400ms;
+    }
+  }
+}
+
+.menu__open {
+  position: absolute;
+  left: 5%;
+  top: 0;
+  width: 100%;
+  height: 14%;
+  margin: 0;
+  z-index: 6;
+  opacity: 0;
+  cursor: pointer;
+
+  &:hover + &__button {
+    transform: scale(1.2, 1.2);
+  }
+
+  &:checked + &__button {
+    transform: scale(0.8, 0.8);
+    .line--1 {
+      transform: translate3d(0, 0, 0) rotate(45deg);
+    }
+    .line--2 {
+      transform: translate3d(0, 0, 0) scale(0.1, 1);
+    }
+    .line--3 {
+      transform: translate3d(0, 0, 0) rotate(-45deg);
+    }
+  }
+
+  &:checked ~ .menu__item {
+    box-shadow: 0 5px 30px $shadow--veryLight, 0 0 10px 0 $shadow--veryLight inset;
+
+    @for $i from 1 through 4 {
+      &:nth-of-type(#{$i}) {
+        transition: transform cubic-bezier(0.165, 0.840, 0.440, 1.000) 400ms+(80ms*$i);
+        transform: translate3d(0, (83px*$i), 0);
+      }
+    }
+    @for $i from 4 through $menu-items {
+      &:nth-of-type(#{$i}) {
+        transition: transform cubic-bezier(0.165, 0.840, 0.440, 1.000) 400ms+(80ms*$i);
+        transform: translate3d(0, 25px+(83px*$i), 0);
+      }
+    }
+  }
+}
+
+.menu__open__button {
+  @include ball;
+  top: 27px;
+  background: white;
+  z-index: 5;
+  transform: scale(1.1, 1.1);
+  transition: transform ease-out 200ms;
+  cursor: pointer;
+  box-shadow: 0 5px 30px $shadow--veryLight;
+}
+
+.menu__item {
+  @include ball;
+  z-index: 4;
+  @for $i from 1 through $menu-items {
+    &:nth-of-type(#{$i}) {
+      transition: transform cubic-bezier(0.165, 0.840, 0.440, 1.000) 500ms;
+    }
+  }
+
+  input[type=checkbox] {
+    @include sideButton($green)
+  }
+
+  input[type=radio] {
+    @include sideButton($yellow)
+  }
+
+  &--Time {
+    input[type=radio] {
+      @include sideButton($blue);
+      &:checked ~ label {
+        background: none;
+        box-shadow: 0 5px 0 0 darken($white, 10%);
+        &:hover {
+          box-shadow: 0 5px 0 0 darken($white, 10%), 0 0 30px 0 $blue;
+        }
+        &:active {
+          background: rgba($blue, 0.3);
+          box-shadow: 0 2px 20px 0 $blue inset, 0 2px 30px 0 $blue, 0 3px 0 0 darken(rgba($blue, 0.3), 30%);
+
+          div {
+            color: $white;
+            text-shadow: 0 2px 4px $shadow--light;
+            background: rgba($blue, 0.3);
+          }
+        }
+        div {
+          color: $blue;
+          text-shadow: none;
+        }
+      }
+    }
+    @include timer('input[type=radio]', 60, 75px, $blue, "none");
+  }
+
+  label {
+    position: absolute;
+    width: 100%;
+    border-radius: 100%;
+    left: 0;
+    cursor: pointer;
+    transition: all ease-in-out 350ms, transform ease-in-out 130ms;
+  }
+}
+
+.line {
+  $width: 25px;
+  $height: 3px;
+  width: $width;
+  height: $height;
+  background: black;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -$width/2;
+  margin-top: -$height/2;
+  transition: transform 200ms;
+  $line-spacing: 8px;
+  &--1 {
+    transform: translate3d(0, -$line-spacing, 0);
+  }
+  &--2 {
+    transform: translate3d(0, 0, 0);
+  }
+  &--3 {
+    transform: translate3d(0, $line-spacing, 0);
+  }
+}

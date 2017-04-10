@@ -1,0 +1,11 @@
+{
+  "type": "button",
+  "multiple": "no",
+  "title": "Úszóverseny",
+  "level": ["Benjamin - Közepes", "Kadét - Könnyű"],
+  "description": ["A hódok és a viperák között rendezett úszóversenyen kilencen vettek részt. A következő pontokat kapták: 1, 2, 2, 3, 4, 5, 5, 6, 7","Sajnos a viperák nem voltak túl sikeresek: egyik viperának sem volt több pontja, mint bármelyik hódnak. De egy viperának épp annyi pontja volt, mint egy hódnak és ezenkívül két vipera is egyforma pontszámot ért el."],
+  "question": "Hány vipera vett részt a versenyen?",
+  "mainImage": "src/img/uszoverseny/main.png",
+  "answerImages": ["src/img/uszoverseny/1.png","src/img/uszoverseny/2.png","src/img/uszoverseny/3.png","src/img/uszoverseny/4.png"],
+  "answer":[3]
+}

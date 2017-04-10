@@ -1,0 +1,44 @@
+{
+  "name": "project",
+  "version": "0.0.0",
+  "description": "Webpack+React",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "./node_modules/.bin/webpack-dev-server --inline --hot",
+    "build": "./node_modules/.bin/webpack"
+  },
+  "devDependencies": {
+    "axios": "^0.15.3",
+    "babel-core": "^6.24.0",
+    "babel-loader": "^6.4.1",
+    "babel-plugin-react-transform": "^2.0.2",
+    "babel-preset-es2017": "^6.22.0",
+    "babel-preset-react": "^6.23.0",
+    "css-loader": "^0.27.3",
+    "node-sass": "^4.5.0",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "react-tools": "^0.13.3",
+    "react-transform": "0.0.3",
+    "react-transform-hmr": "^1.0.4",
+    "sass-loader": "^6.0.3",
+    "style-loader": "^0.14.1",
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^2.4.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/G-CorpDev/project.git"
+  },
+  "author": "G-Corp",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/G-CorpDev/project/issues"
+  },
+  "homepage": "https://github.com/G-CorpDev/project#readme",
+  "dependencies": {
+    "react-dnd": "^2.3.0",
+    "react-dnd-html5-backend": "^2.3.0"
+  }
+}

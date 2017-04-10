@@ -1,0 +1,198 @@
+@import 'colors.scss';
+
+$small3d: //    3d
+        0 1px 0 #ccc,
+        0 2px 0 #c9c9c9,
+          //    drop shadow
+        0 6px 1px rgba(0, 0, 0, 0.10),
+        0 0px 5px rgba(0, 0, 0, 0.10),
+        0 1px 3px rgba(0, 0, 0, 0.30),
+        0 3px 5px rgba(0, 0, 0, 0.20),
+        0 5px 10px rgba(0, 0, 0, 0.25),
+        0 10px 10px rgba(0, 0, 0, 0.20),
+        0 20px 20px rgba(0, 0, 0, 0.15);
+
+$big3d: //    3d
+        0 1px 0 #ccc,
+        0 2px 0 #c9c9c9,
+        0 3px 0 #bbb,
+        0 4px 0 #b9b9b9,
+        0 5px 0 #aaa,
+          //    drop shadow
+        0 6px 1px rgba(0, 0, 0, 0.10),
+        0 0px 5px rgba(0, 0, 0, 0.10),
+        0 1px 3px rgba(0, 0, 0, 0.30),
+        0 3px 5px rgba(0, 0, 0, 0.20),
+        0 5px 10px rgba(0, 0, 0, 0.25),
+        0 10px 10px rgba(0, 0, 0, 0.20),
+        0 20px 20px rgba(0, 0, 0, 0.15);
+
+@mixin box {
+  height: 90px;
+  width: 90px;
+  box-sizing: border-box;
+  border-radius: 0.6em;
+  border: none;
+  background-size: contain !important;
+  overflow: hidden;
+  background-color: #fff !important;
+  align-self: center;
+  color: #fff;
+}
+
+@mixin ball {
+  position: absolute;
+  top: 25px;
+  width: 75px;
+  height: 75px;
+  left: 20px;
+  border-radius: 100%;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font: 700 10px 'Syncopate', sans-serif;
+  text-transform: uppercase;
+  line-height: 75px;
+  transform: translate3d(0, 0, 0);
+}
+
+@mixin text-shadow-3d-big {
+  text-shadow: $big3d;
+}
+
+@mixin text-shadow-3d-small {
+  text-shadow: $small3d;
+}
+
+@mixin box-shadow-3d-big {
+  box-shadow: $big3d;
+}
+
+@mixin box-shadow-3d-small {
+  box-shadow: $small3d;
+}
+
+@mixin neonColor($color) {
+  from {
+    box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px $color, 0 0 70px $color, 0 0 80px $color, 0 0 100px $color, 0 0 150px $color;
+  }
+  to {
+    box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px $color, 0 0 35px $color, 0 0 40px $color, 0 0 50px $color, 0 0 75px $color;
+  }
+}
+
+@mixin neonColorSmall($color) {
+  from {
+    box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px $color, 0 0 70px $color;
+  }
+  to {
+    box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px $color, 0 0 35px $color;
+  }
+}
+
+@keyframes redNeon {
+  @include neonColor($red);
+}
+
+@keyframes greenNeon {
+  @include neonColor($green);
+}
+
+@keyframes blueNeon {
+  @include neonColor($blue);
+}
+
+@keyframes blueNeonSmall {
+  @include neonColorSmall($blue);
+}
+
+@keyframes greenNeonSmall {
+  @include neonColorSmall($green);
+}
+
+@keyframes yellowNeonSmall {
+  @include neonColorSmall($yellow);
+}
+
+@mixin timer($item, $duration, $size, $color, $border, $hover: running) {
+  #{$item}, #{$item} * { box-sizing: border-box; }
+
+  #{$item}:checked ~ label {
+    width: $size;
+    height: $size;
+    background: white;
+
+    &::before{
+      content: "";
+      left: 0;
+      width: 50%;
+      height: 100%;
+      transform-origin: 100% 50%;
+      position: absolute;
+      z-index: 200;
+      background: $color;
+      border-radius: 100% 0 0 100% / 50% 0 0 50%;
+      border: #{$border};
+      border-right: none;
+      animation: rota $duration + s linear;
+    }
+
+    &::after {
+      content: "";
+      left: 0;
+      width: 50%;
+      height: 100%;
+      position: absolute;
+      background: inherit;
+      z-index: 300;
+      border-bottom-left-radius: 75px;
+      border-top-left-radius: 75px;
+      animation: opa $duration + s steps(1,end);
+      opacity: 1;
+    }
+
+    & div {
+      left: 50%;
+      width: 50%;
+      height: 100%;
+      transform-origin: 100% 50%;
+      position: absolute;
+      background: $color;
+      z-index: 100;
+      border-radius: 0 100% 100% 0 / 0 50% 50% 0;
+      border: #{$border};
+      border-left: none;
+      animation: opa $duration + s steps(1,end) reverse;
+      opacity: 0;
+    }
+
+    &:hover::before,&:hover::after,&:hover div{
+      animation-play-state: $hover;
+    }
+  }
+
+  #{$item}:active{
+    & ~ label::after, & ~ label div, & ~ label::before{
+      animation: none;
+    }
+    & ~ label::before,& ~ label::after {
+      opacity: 0;
+    }
+    & ~ label div {
+      opacity: 1;
+      left: 0;
+      width: 100%;
+      border-radius: 100%;
+    }
+  }
+
+  @keyframes rota {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  @keyframes opa {
+    0% { opacity: 1; }
+    50%, 100% { opacity: 0; }
+  }
+}

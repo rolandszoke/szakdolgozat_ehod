@@ -1,0 +1,11 @@
+{
+  "type": "checkbox",
+  "title": "Alakzatjáték",
+  "level": ["Senior - Nehéz"],
+  "description": ["Aliz geometriai alakzatokkal játszik. Egy-egy alakzatsort átvált alakzatok egy másik sorára.","Aliz minden játékkörben saját átváltási szabályokat rögzít. Minden átváltáskor a szabályt olyan sokszor alkalmazza, ahányszor csak lehetséges. Minden játékkört egy alakzattal kezd."],
+  "question": "Az alábbi szabályok közül melyik három lehet érvényben, ha a fenti kártyasorozat jött ki és tudjuk, hogy a kiindulópont a három geometriai alakzat egyike volt?",
+  "mainImage": "src/img/alakzatjatek/main.png",
+  "checkImages": ["src/img/alakzatjatek/check/1.png","src/img/alakzatjatek/check/2.png","src/img/alakzatjatek/check/3.png","src/img/alakzatjatek/check/4.png","src/img/alakzatjatek/check/5.png","src/img/alakzatjatek/check/6.png"],
+  "uncheckImages": ["src/img/alakzatjatek/uncheck/1.png","src/img/alakzatjatek/uncheck/2.png","src/img/alakzatjatek/uncheck/3.png","src/img/alakzatjatek/uncheck/4.png","src/img/alakzatjatek/uncheck/5.png","src/img/alakzatjatek/uncheck/6.png"],
+  "answer":[3,4,5]
+}

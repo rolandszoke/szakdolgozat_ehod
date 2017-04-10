@@ -1,0 +1,11 @@
+{
+	"type": "button",
+	"multiple": "no",
+	"title": "Népszerűség",
+	"level": ["Junior - Nehéz", "Senior - Közepes"],
+	"description": ["Hét hód regisztrált egy online hálózatra. A kép azt mutatja, a hálózaton belül mely hódok “barátok”: a barátok egy vonallal vannak összekötve. A nyári szünet után minden hód megosztott egy fotót a barátaival a hálózaton. Így a barátaik oldalán is megjelent a fénykép. Minden hód a saját oldalán és a barátai oldalán lévő fotókat látja."],
+	"question": "Kinek a fényképét látja a legtöbb hód?",
+	"mainImage": "src/img/nepszeruseg/graph.png",
+	"answerImages": ["src/img/nepszeruseg/1.png","src/img/nepszeruseg/2.png","src/img/nepszeruseg/3.png","src/img/nepszeruseg/4.png"],
+	"answer":[1]
+}

@@ -1,0 +1,11 @@
+{
+  "type": "checkbox",
+  "title": "Takarékos öntözés",
+  "level": ["Benjamin - Könnyű", " Kishód - Könnyű"],
+  "description": ["A Nyírfa családnak van egy tava, a tó körül pedig földjei. A vizet a tóból csatornákon keresztül vezetik a földekre. Ehhez mindig a megfelelő zsilipeket nyitják ki vagy zárják le.","A Nyírfa család takarékosan bánik a tó vizével. Most csak a virággal beültetett földeket akarják megöntözni. Az üres földeknek száraznak kell maradniuk."],
+  "question": "Segíts a Nyírfa családnak! Melyik zsilipeket nyissák meg?",
+  "mainImage": "src/img/takarekosOntozes/main.png",
+  "checkImages": ["src/img/takarekosOntozes/check/1.png","src/img/takarekosOntozes/check/2.png","src/img/takarekosOntozes/check/3.png","src/img/takarekosOntozes/check/4.png","src/img/takarekosOntozes/check/5.png","src/img/takarekosOntozes/check/6.png"],
+  "uncheckImages": ["src/img/takarekosOntozes/uncheck/1.png","src/img/takarekosOntozes/uncheck/2.png","src/img/takarekosOntozes/uncheck/3.png","src/img/takarekosOntozes/uncheck/4.png","src/img/takarekosOntozes/uncheck/5.png","src/img/takarekosOntozes/uncheck/6.png"],
+  "answer":[4,2]
+}

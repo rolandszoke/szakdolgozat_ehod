@@ -1,0 +1,11 @@
+{
+  "type": "button",
+  "multiple": "no",
+  "title": "Vegetariánus Hajtóvadászat",
+  "level": ["Kishód - Nehéz","Benjamin - Közepes"],
+  "description": ["A hódok kerti party-ra készülnek, melyre egy salátát is szeretnének elkészíteni. Sajnos a szakács szabadságon van. Kati tudja milyen fontos, hogy az összetevőket a megfelelő sorrendben keverjék össze.","A kertben észreveszi, hogy a szakács segített neki: minden összetevőhöz egy útmutatót tett, mely a következő összetevőhöz vezet."],
+  "question": "Melyik összetevőt kell Katinak először a salátába tennie?",
+  "mainImage": "src/img/vegetarianusHajtovadaszat/main.png",
+  "answerImages": ["src/img/vegetarianusHajtovadaszat/1.png","src/img/vegetarianusHajtovadaszat/2.png","src/img/vegetarianusHajtovadaszat/3.png","src/img/vegetarianusHajtovadaszat/4.png","src/img/vegetarianusHajtovadaszat/5.png"],
+  "answer":[1]
+}

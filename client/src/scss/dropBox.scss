@@ -1,0 +1,62 @@
+@import 'mixin.scss';
+@import 'colors.scss';
+
+.dnd {
+  position: relative;
+  width: 83%;
+  height: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  margin: 0 auto 50px;
+  text-align: -webkit-center;
+  justify-content: center;
+}
+
+.flexBox {
+  position: relative;
+}
+
+.dropBox {
+  @include box;
+  display: inline-block;
+  margin: 5px 0;
+  box-shadow: 0 0 20px 0 $blue inset, 0 0 0 0 $blue;
+  transition: box-shadow 150ms ease-in-out;
+
+  &.source {
+    &:hover {
+      box-shadow: 0 0 10px 0 $blue inset, 0 0 50px 5px $blue;
+    }
+  }
+
+  &.target {
+    box-shadow: 0 0 10px 0 $green inset, 0 0 0 0 $green;
+    opacity: 0.6;
+    &.overlay {
+      opacity: 0.9;
+      box-shadow: 0 0 10px 0 $green inset, 0 0 50px 5px $green;
+    }
+  }
+  &.vertical {
+    display: block;
+    position: relative;
+    border-radius: 0.4em;
+    height: 55px;
+    width: 55px;
+    margin: 0;
+  }
+}
+
+.element {
+  @include box;
+  box-shadow: 0 0 20px 0 $blue inset, 0 0 0 0 $blue;
+  transition: box-shadow 150ms ease-in-out;
+  &:hover {
+    box-shadow: none;
+  }
+  &.vertical {
+    border-radius: 0.4em;
+    height: 55px;
+    width: 55px;
+  }
+}

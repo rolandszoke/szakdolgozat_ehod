@@ -1,0 +1,15 @@
+{
+  "games": [
+    "animacio.json","balraAt.json","fagyiautomata.json",
+    "foldekOntozese.json","gyurmaallatok.json",
+    "helyesIrany.json","nepszeruseg.json",
+    "szigetekHidak.json","takarekosOntozes.json",
+    "tukortojas.json","varazslatosAlagut.json",
+    "raid.json","lisakFeltoltese.json",
+    "gyurmaallatok_2.json","uszoverseny.json",
+    "fagylalthalom.json","ontozes.json",
+    "csofutam.json","alakzatjatek.json",
+    "alakzatjatek_2.json","szulinapiGyertyak.json",
+    "zaszlotarolas.json","vegetarianusHajtovadaszat.json",
+    "strandzaszloNyelv.json"]
+}

@@ -1,0 +1,92 @@
+@import 'colors.scss';
+@import 'mixin.scss';
+
+.buttons {
+  position: relative;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  //margin: 5px 30px;
+}
+
+.btn {
+  position: relative;
+  display: inline-block;
+  //flex: 1;
+  @include box;
+  margin: 20px;
+  box-shadow: 0 0 20px 0 $blue inset, 0 0 0 0 $blue;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'Syncopate', sans-serif;
+  transition: all 150ms ease-in-out;
+  animation: none;
+
+  &.send {
+    display: block;
+    position: absolute;
+    height: 45px;
+    width: 110px;
+    margin: 4px 0 0;
+    left: 0;
+    bottom: 0;
+    border-radius: 0 0.6em;
+    background-color: lighten($green, 10%) !important;
+    box-shadow: 0 0 10px 0 $green inset, 0 0 20px 0 $green;
+    @include text-shadow-3d-small;
+    &:hover {
+      box-shadow: none;
+      transform: scale(1);
+      animation: greenNeonSmall 1.5s ease-in-out infinite alternate;
+    }
+  }
+
+  &.reset {
+    display: block;
+    position: absolute;
+    height: 45px;
+    width: 110px;
+    margin: 4px 0 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 0.6em 0;
+    background-color: lighten($yellow, 10%) !important;
+    box-shadow: 0 0 10px 0 $yellow inset, 0 0 20px 0 $yellow;
+    @include text-shadow-3d-small;
+    &:hover {
+      box-shadow: none;
+      transform: scale(1);
+      animation: yellowNeonSmall 1.5s ease-in-out infinite alternate;
+    }
+  }
+
+  &:hover,
+  &:focus {
+    color: #fff;
+    outline: 0;
+  }
+
+  &:hover {
+    box-shadow: 0 0 10px 0 $blue inset, 0 0 50px 0px $blue;
+    transform: scale(1.6);
+  }
+
+  &:active {
+    box-shadow: 0 0 10px 0 $blue inset, 0 0 10px 4px $blue;
+  }
+
+  &--multiple{
+    height: 65px;
+    width: 65px;
+    &:hover {
+      box-shadow: 0 0 10px 0 $blue inset, 0 0 50px 0px $blue;
+      transform: scale(1.2);
+    }
+  }
+
+}

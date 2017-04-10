@@ -1,0 +1,11 @@
+{
+	"type": "button",
+	"multiple": "no",
+	"title": "Szigetek és Hidak",
+	"level": ["Senior - Nehéz"],
+	"description": ["Hódország települései különböző szigeteken vannak szétszórva. Így hát a csereberéhez hidakat akarnak építeni.","Hódország egy mérnöke olyan tervet rajzolt, ahol a szigetek pontokként, a hidak pedig vonalakként látszottak."," A munkások azonban olyan tervet szeretnének, ahol a hidak a pontok és a szigetek a vonalak."],
+	"question": "Hogy néz ki ez a terv?",
+	"mainImage": "src/img/szigetekHidak/map.png",
+	"answerImages": ["src/img/szigetekHidak/1.png","src/img/szigetekHidak/2.png","src/img/szigetekHidak/3.png","src/img/szigetekHidak/4.png"],
+	"answer":[3]
+}
