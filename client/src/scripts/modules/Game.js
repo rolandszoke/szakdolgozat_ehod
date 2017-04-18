@@ -34,7 +34,7 @@ class Game extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        if (nextProps.gameMode[0] === "Time") {
+        if (nextProps.gameMode[0] === "Időre") {
             this.setState({front: "front--time", correctAnswers: 0});
             this.counter();
         } else {
@@ -108,7 +108,7 @@ class Game extends Component {
             this.setState({back: "back--wrong", backText: "X"});
         }
         this.setState({flip: "game--flip"});
-        if (this.state.gameMode[0] === "Time") {
+        if (this.state.gameMode[0] === "Időre") {
             let _this = this;
             setTimeout(
                 function () {
@@ -136,7 +136,7 @@ class Game extends Component {
             paragraphs.push(<p key={index}>{element}</p>);
         });
 
-        let backClickEvent = this.state.gameMode[0] === "Time" ? () => "" : () => this.newGame(this.state.selectableGames,
+        let backClickEvent = this.state.gameMode[0] === "Időre" ? () => "" : () => this.newGame(this.state.selectableGames,
                 this.state.gameMode, this.state.modifiers);
 
 

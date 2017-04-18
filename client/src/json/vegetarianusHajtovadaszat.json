@@ -7,5 +7,6 @@
   "question": "Melyik összetevőt kell Katinak először a salátába tennie?",
   "mainImage": "src/img/vegetarianusHajtovadaszat/main.png",
   "answerImages": ["src/img/vegetarianusHajtovadaszat/1.png","src/img/vegetarianusHajtovadaszat/2.png","src/img/vegetarianusHajtovadaszat/3.png","src/img/vegetarianusHajtovadaszat/4.png","src/img/vegetarianusHajtovadaszat/5.png"],
-  "answer":[1]
+  "answer":[1],
+  "id": 21
 }

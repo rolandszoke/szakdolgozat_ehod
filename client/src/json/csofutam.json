@@ -8,5 +8,6 @@
   "answerImages": ["src/img/csofutam/drag/1.png"],
   "dropImages": ["src/img/csofutam/drop/1.png","src/img/csofutam/drop/2.png","src/img/csofutam/drop/3.png","src/img/csofutam/drop/4.png","src/img/csofutam/drop/5.png"],
   "answer":[-1,-1,0,-1,-1],
-  "vertical":"no"
+  "vertical":"no",
+  "id": 5
 }

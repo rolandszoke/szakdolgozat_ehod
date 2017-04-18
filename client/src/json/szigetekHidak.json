@@ -7,5 +7,6 @@
 	"question": "Hogy néz ki ez a terv?",
 	"mainImage": "src/img/szigetekHidak/map.png",
 	"answerImages": ["src/img/szigetekHidak/1.png","src/img/szigetekHidak/2.png","src/img/szigetekHidak/3.png","src/img/szigetekHidak/4.png"],
-	"answer":[3]
+	"answer":[3],
+	"id": 17
 }

@@ -8,5 +8,6 @@
   "answerImages": ["src/img/strandzaszloNyelv/drag/1.png","src/img/strandzaszloNyelv/drag/2.png","src/img/strandzaszloNyelv/drag/3.png","src/img/strandzaszloNyelv/drag/4.png","src/img/strandzaszloNyelv/drag/5.png","src/img/strandzaszloNyelv/drag/6.png","src/img/strandzaszloNyelv/drag/7.png"],
   "dropImages": ["src/img/strandzaszloNyelv/drop/1.png","src/img/strandzaszloNyelv/drop/2.png","src/img/strandzaszloNyelv/drop/3.png"],
   "answer":[0,3,6],
-  "vertical":"yes"
+  "vertical":"yes",
+  "id": 16
 }

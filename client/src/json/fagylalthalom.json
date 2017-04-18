@@ -7,5 +7,6 @@
   "question": "Mit kell mondania a vevőnek, ha a képen látható fagylalttölcsért szeretné? Szeretnék egy...",
   "mainImage": "src/img/fagylalthalom/main.png",
   "answerImages": ["src/img/fagylalthalom/1.png","src/img/fagylalthalom/2.png","src/img/fagylalthalom/3.png"],
-  "answer":[2,0,1]
+  "answer":[2,0,1],
+  "id": 7
 }

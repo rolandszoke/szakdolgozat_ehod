@@ -7,5 +7,6 @@
   "question": "Hogy nyomogassuk a gombokat, a lehető legkevesebbszer, hogy a végén a robot egy negyedet balra fordulva álljon?",
   "mainImage": "src/img/balraAt/main.png",
   "answerImages": ["src/img/balraAt/1.png","src/img/balraAt/2.png"],
-  "answer":[1,1,1]
+  "answer":[1,1,1],
+  "id": 4
 }

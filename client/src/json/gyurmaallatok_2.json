@@ -8,5 +8,6 @@
   "answerImages": ["src/img/gyurmaallatok/drag/1.png","src/img/gyurmaallatok/drag/2.png","src/img/gyurmaallatok/drag/3.png"],
   "dropImages": ["src/img/gyurmaallatok/drop/1.png","src/img/gyurmaallatok/drop/2.png","src/img/gyurmaallatok/drop/4.png"],
   "answer":[1,2,0],
-  "vertical":"no"
+  "vertical":"no",
+  "id": 10
 }

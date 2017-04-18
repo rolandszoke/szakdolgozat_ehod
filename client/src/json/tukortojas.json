@@ -7,5 +7,6 @@
   "question": "Mit látnak a hódok?",
   "mainImage": "src/img/tukortojas/main.png",
   "answerImages": ["src/img/tukortojas/1.png","src/img/tukortojas/2.png","src/img/tukortojas/3.png","src/img/tukortojas/4.png"],
-  "answer":[1]
+  "answer":[1],
+  "id": 20
 }

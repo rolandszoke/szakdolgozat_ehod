@@ -8,7 +8,7 @@
   width: 800px;
   height: 800px;
   margin-top: 0;
-  z-index: 2;
+  z-index: 4;
   transform: translate(-50%, 0%);
   border-radius: 2vh;
   text-align: center;
@@ -17,10 +17,10 @@
   @include text-shadow-3d-small;
   perspective: 1000px;
   transition: all 0.5s;
-  @media (max-width: 740px) {
+  @media (max-width: 810px) {
     width: 97%;
   }
-  @media (max-device-width: 740px) {
+  @media (max-device-width: 810px) {
     width: 97%;
   }
 
@@ -33,7 +33,7 @@
     transition: transform 400ms;
     transition-timing-function: linear;
     border-radius: 10px;
-    box-shadow: 0 15px 80px -15px rgba(0, 0, 0, 0.3), 0 55px 50px -35px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 15px 80px -15px $shadow--light, 0 55px 50px -35px $shadow--light;
   }
 
   .front {
@@ -105,6 +105,8 @@
   }
 
   .game__info {
+    position: relative;
+    height: auto;
 
     img {
       border-radius: 0.3em;
@@ -156,10 +158,16 @@
     }
 
     &__question {
-      font-family: 'Roboto', Arial, sans-serif;
+      /*position: absolute;
+      bottom: 10px;
+      left: 50%;
+      width: 80%;
+      transform: translate(-50%,0);*/
+      font-family:  'Roboto', Arial, sans-serif;
+      font-size: 19px;
       text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
-      margin: 10px 35px;
-      text-transform: uppercase;
+      margin: 10px 0;
+      //text-transform: uppercase;
     }
 
   }

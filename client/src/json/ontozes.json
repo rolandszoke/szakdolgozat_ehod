@@ -7,5 +7,6 @@
   "question": "A három szomjas virág közül melyik kap vizet, ha a szelepek így állnak?",
   "mainImage": "src/img/ontozes/main.png",
   "answerImages": ["src/img/ontozes/1.png","src/img/ontozes/2.png","src/img/ontozes/3.png"],
-  "answer":[1]
+  "answer":[1],
+  "id": 14
 }

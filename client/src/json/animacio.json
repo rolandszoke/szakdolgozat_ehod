@@ -8,5 +8,6 @@
   "answerImages": ["src/img/animacio/drag/1.png","src/img/animacio/drag/2.png","src/img/animacio/drag/3.png","src/img/animacio/drag/4.png","src/img/animacio/drag/5.png"],
   "dropImages": ["src/img/animacio/drop/1.png","src/img/animacio/drop/2.png","src/img/animacio/drop/3.png","src/img/animacio/drop/4.png","src/img/animacio/drop/5.png","src/img/animacio/drop/6.png"],
   "answer":[1,3,2,0,4,-1],
-  "vertical":"no"
+  "vertical":"no",
+  "id": 3
 }

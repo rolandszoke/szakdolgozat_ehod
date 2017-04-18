@@ -7,5 +7,6 @@
   "mainImage": "src/img/alakzatjatek/main.png",
   "checkImages": ["src/img/alakzatjatek/check/1.png","src/img/alakzatjatek/check/2.png","src/img/alakzatjatek/check/3.png","src/img/alakzatjatek/check/4.png","src/img/alakzatjatek/check/5.png","src/img/alakzatjatek/check/6.png"],
   "uncheckImages": ["src/img/alakzatjatek/uncheck/1.png","src/img/alakzatjatek/uncheck/2.png","src/img/alakzatjatek/uncheck/3.png","src/img/alakzatjatek/uncheck/4.png","src/img/alakzatjatek/uncheck/5.png","src/img/alakzatjatek/uncheck/6.png"],
-  "answer":[3,4,5]
+  "answer":[3,4,5],
+  "id": 1
 }

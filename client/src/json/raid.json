@@ -7,5 +7,6 @@
   "question": "Az alábbi RAID-ek közül melyik az, amelyiken NEM történik adatvesztés akkor sem, ha két tetszőleges merevlemez tönkremegy?",
   "mainImage": "src/img/raid/main.png",
   "answerImages": ["src/img/raid/1.png","src/img/raid/2.png","src/img/raid/3.png","src/img/raid/4.png"],
-  "answer":[2]
+  "answer":[2],
+  "id": 15
 }

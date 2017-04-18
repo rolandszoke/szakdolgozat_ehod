@@ -7,5 +7,6 @@
   "mainImage": "src/img/takarekosOntozes/main.png",
   "checkImages": ["src/img/takarekosOntozes/check/1.png","src/img/takarekosOntozes/check/2.png","src/img/takarekosOntozes/check/3.png","src/img/takarekosOntozes/check/4.png","src/img/takarekosOntozes/check/5.png","src/img/takarekosOntozes/check/6.png"],
   "uncheckImages": ["src/img/takarekosOntozes/uncheck/1.png","src/img/takarekosOntozes/uncheck/2.png","src/img/takarekosOntozes/uncheck/3.png","src/img/takarekosOntozes/uncheck/4.png","src/img/takarekosOntozes/uncheck/5.png","src/img/takarekosOntozes/uncheck/6.png"],
-  "answer":[4,2]
+  "answer":[4,2],
+  "id": 19
 }

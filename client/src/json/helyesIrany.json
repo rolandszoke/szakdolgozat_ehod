@@ -7,5 +7,6 @@
 	"question": "Hol van Anna és Bob most?",
 	"mainImage": "src/img/helyesIrany/map.png",
 	"answerImages": ["src/img/helyesIrany/1.png","src/img/helyesIrany/2.png","src/img/helyesIrany/3.png","src/img/helyesIrany/4.png"],
-	"answer":[2]
+	"answer":[2],
+	"id": 11
 }

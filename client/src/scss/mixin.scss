@@ -2,7 +2,7 @@
 
 $small3d: //    3d
         0 1px 0 #ccc,
-        0 2px 0 #c9c9c9,
+        //0 2px 0 #c9c9c9,
           //    drop shadow
         0 6px 1px rgba(0, 0, 0, 0.10),
         0 0px 5px rgba(0, 0, 0, 0.10),
@@ -50,7 +50,7 @@ $big3d: //    3d
   color: white;
   text-align: center;
   text-decoration: none;
-  font: 700 10px 'Syncopate', sans-serif;
+  font: 700 9px 'Syncopate', sans-serif;
   text-transform: uppercase;
   line-height: 75px;
   transform: translate3d(0, 0, 0);
@@ -90,6 +90,15 @@ $big3d: //    3d
   }
 }
 
+@keyframes greenTextNeon {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px $green, 0 0 70px $green;
+  }
+  to {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px $green, 0 0 35px $green;
+  }
+}
+
 @keyframes redNeon {
   @include neonColor($red);
 }
@@ -112,6 +121,10 @@ $big3d: //    3d
 
 @keyframes yellowNeonSmall {
   @include neonColorSmall($yellow);
+}
+
+@keyframes purpleNeonSmall {
+  @include neonColorSmall($purple);
 }
 
 @mixin timer($item, $duration, $size, $color, $border, $hover: running) {

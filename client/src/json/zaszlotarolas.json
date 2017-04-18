@@ -7,5 +7,6 @@
   "question": "Melyik zászló tárolásakor lesz a legnagyobb a GIW állomány?",
   "mainImage": "",
   "answerImages": ["src/img/zaszlotarolas/1.png","src/img/zaszlotarolas/2.png","src/img/zaszlotarolas/3.png","src/img/zaszlotarolas/4.png"],
-  "answer":[1]
+  "answer":[1],
+  "id": 24
 }

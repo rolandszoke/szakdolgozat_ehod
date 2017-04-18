@@ -64,7 +64,7 @@ class Menu extends Component {
     render() {
         let checkboxes_1 = ["Könnyű", "Közepes", "Nehéz"];
         //let checkboxes_2 = ["DnD", "Check", "Button"];
-        let radios_1 = ["Arcade", "Time", "Test"];
+        let radios_1 = ["Felfedező", "Időre", "Teszt"];
         let radios_2 = ["Kishód", "Benjamin", "Kadét", "Junior", "Senior", "Összes"];
         let checkboxes = [];
         let radios = [];
@@ -83,7 +83,7 @@ class Menu extends Component {
         });
         let nav = [];
         nav.push(_this.renderNav(radios, "menu--left"));
-        if (this.state.gameMode[0] !== "Time" && this.state.gameMode[1] !== "Összes" && this.state.gameMode[0] !== "Test") {
+        if (this.state.gameMode[0] !== "Időre" && this.state.gameMode[1] !== "Összes" && this.state.gameMode[0] !== "Teszt") {
             nav.push(_this.renderNav(checkboxes, "menu--right"));
         } else {
             nav.push(_this.renderNav([], "menu--right menu--hidden"));
@@ -124,7 +124,7 @@ class Menu extends Component {
                             <li> A megoldások a verseny befejezése után, a hod hetet követően kerülnek nyilvánosságra.</li>
                         </p>
                     </div>
-                    <div className="blur"></div>
+                    <div className="shadow"></div>
                 </div>
                 {nav}
             </div>

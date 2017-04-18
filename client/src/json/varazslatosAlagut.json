@@ -9,5 +9,6 @@
   "dropImages": ["src/img/varazslatosAlagut/drop/1.png","src/img/varazslatosAlagut/drop/2.png","src/img/varazslatosAlagut/drop/3.png","src/img/varazslatosAlagut/drop/4.png"],
   "watching":"element",
   "answer":[3,1,2,0],
-  "vertical":"no"
+  "vertical":"no",
+  "id": 23
 }

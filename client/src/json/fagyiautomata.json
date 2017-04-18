@@ -8,5 +8,6 @@
   "answerImages": ["src/img/fagyiautomata/drag/1.png","src/img/fagyiautomata/drag/2.png","src/img/fagyiautomata/drag/3.png","src/img/fagyiautomata/drag/4.png"],
   "dropImages": [" "," "," "," ","src/img/fagyiautomata/drop/1.png"],
   "answer":[3,0,1,2,-1],
-  "vertical":"yes"
+  "vertical":"yes",
+  "id": 6
 }

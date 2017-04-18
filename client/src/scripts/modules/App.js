@@ -1,23 +1,29 @@
 import React, {Component} from 'react';
 import Menu from './Menu.js';
 import Game from './Game.js';
+import CreateTest from './CreateTest.js';
 
 class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            gameMode: ["Arcade", "Összes"],
-            modifiers: ["Könnyű", "Közepes", "Nehéz"]
+            gameMode: ["Felfedező", "Összes"],
+            modifiers: ["Könnyű", "Közepes", "Nehéz"],
+            createTest: true,
         };
+    }
+
+    checkCreateTest(bool) {
+        this.setState({createTest: bool});
     }
 
     changeGameMode(e, g) {
         let gameMode = this.state.gameMode.slice();
         gameMode[g - 1] = e;
-        if(gameMode[0]==="Time" && parseInt(g)===2){
-            gameMode[0]="Arcade";
+        if(gameMode[0]==="Időre" && parseInt(g)===2){
+            gameMode[0]="Felfedező";
         }
-        if(gameMode[0]==="Test" || gameMode[1]==="Összes"|| gameMode[0]==="Time"){
+        if(gameMode[0]==="Teszt" || gameMode[1]==="Összes"|| gameMode[0]==="Időre"){
             this.setState({modifiers: ["Könnyű", "Közepes", "Nehéz"]});
         }
         this.setState({gameMode: gameMode});
@@ -43,9 +49,9 @@ class App extends Component {
                       gameMode={this.state.gameMode}
                       modifiers={this.state.modifiers}
                 />
+                <CreateTest checkCreateTest={(i) => this.checkCreateTest(i)}/>
                 <h1>E-hod</h1>
-                <Game gameMode={this.state.gameMode}
-                      modifiers={this.state.modifiers}/>
+                {this.state.createTest ? "" : <Game gameMode={this.state.gameMode} modifiers={this.state.modifiers}/>}
                 <div className="bg" style={{background: 'url(src/img/background.jpg) no-repeat 0 0'}}></div>
             </div>
         );

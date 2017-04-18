@@ -1,0 +1,268 @@
+@import 'mixin.scss';
+@import 'colors.scss';
+
+@mixin button($color) {
+  width: 100px;
+  height: 40px;
+  border-radius: 8px;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font: 700 10px 'Syncopate', sans-serif;
+  text-transform: uppercase;
+  user-select: none;
+  cursor: pointer;
+  transition: box-shadow ease-in-out 350ms, background ease-in-out 350ms, transform ease-in-out 130ms;
+  background: $shadow--light;
+  box-shadow: 0 0 10px 0 $color inset, 0 0 0 0 $color, 0 5px 0 0 darken($shadow, 10%);
+
+  &:hover {
+    box-shadow: 0 0 20px 0 $color inset, 0 0 10px 0 $color, 0 5px 0 0 darken($shadow, 7%);
+  }
+  &:active {
+    transform: translate3d(0, 2px, 0);
+    background: rgba($color, 0.3);
+    box-shadow: 0 2px 20px 0 $color inset, 0 2px 30px 0 $color, 0 3px 0 0 darken(rgba($color, 0.3), 30%);
+  }
+
+  span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.createTest {
+
+  &__opener {
+    display: inline-block;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    z-index: 3;
+
+    @media (max-width: 1010px) {
+      left: 0;
+    }
+  }
+
+  &__button {
+    display: block;
+    position: absolute;
+    top: 30px;
+    left: -400px;
+
+    @media (max-width: 1010px) {
+      left: 110px;
+    }
+
+    @include button($purple);
+  }
+
+  .listBox {
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 52%;
+    transform: translate(-50%, -50%);
+    width: 700px;
+    height: 800px;
+    background: linear-gradient($shadow--light 10%, $purple 90%);
+    border-radius: 10px;
+    z-index: 10;
+    transition: top 800ms;
+    overflow: hidden;
+    //animation: purpleNeonSmall 1.5s ease-in-out infinite alternate;
+    box-shadow:
+            0 15px 80px 5px $shadow--light,
+            0 55px 50px -35px $shadow--light;
+
+    &--closed {
+      top: -900px;
+      transition: top 1300ms;
+    }
+
+    @media (max-width: 900px) {
+      width: 100%;
+    }
+
+    &__header {
+      position: absolute;
+      top: 0;
+      height: 80px;
+      width: 100%;
+      background: rgba($purple, 0.9);
+
+      span {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+
+        font: 700 19px 'Syncopate', sans-serif;
+        color: $white;
+        text-align: center;
+        text-transform: uppercase;
+        user-select: none;
+        line-height: 27px;
+        @include text-shadow-3d-small;
+      }
+    }
+
+    &__footer {
+      position: absolute;
+      bottom: 0;
+      height: 60px;
+      width: 100%;
+      background: rgba($purple, 0.9);
+    }
+
+    &__button {
+      display: inline-block;
+      position: absolute;
+      margin: 7px 20px;
+      &--send {
+        right: 50%;
+        @include button($green);
+      }
+      &--cancel {
+        left: 50%;
+        @include button($yellow);
+      }
+    }
+
+    .table {
+      display: block;
+      position: relative;
+      height: 660px;
+      width: 100%;
+      top: 80px;
+      overflow: auto;
+
+      table {
+        border-collapse: collapse !important;
+        border: none !important;
+        display: table;
+        width: 100%;
+        user-select: none;
+
+        th:nth-child(odd) {
+          width: 35%;
+        }
+        th:nth-child(even) {
+          width: 65%;
+        }
+        thead {
+          position: fixed;
+          z-index: 3;
+          width: 100%;
+          tr{
+            display: table;
+            width: 100%;
+          }
+          th {
+            background: lighten($purple, 10%);
+            color: $white;
+            padding: 5px 5px 5px 30px;
+            text-align: left;
+            font-family: 'Roboto', Arial, sans-serif;
+            font-weight: 600;
+            font-size: 20px;
+            text-transform: uppercase;
+            text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
+            &:last-child {
+              border-left: 3px solid $white;
+            }
+          }
+        }
+        tbody{
+          display: table;
+          width: 100%;
+          position: relative;
+          top:33px;
+        }
+      }
+
+      &__item {
+
+        th {
+          position: relative;
+          background: $shadow--veryLight;
+          color: $white;
+          padding: 6px 5px 6px 35px;
+          text-align: left;
+          font-family: 'Roboto', Arial, sans-serif;
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 1.2;
+          text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
+
+          &:nth-child(even) {
+            border-left: 3px solid $white;
+            padding: 5px 5px 5px 10px;
+          }
+
+          .check{
+            width: 25px;
+            height: 25px;
+            position: absolute;
+            left: 5px;
+            top:50%;
+            transform: translate(0,-50%);
+            background: $red;
+            border-radius: 100%;
+            cursor: pointer;
+            color: $white !important;
+            text-align: center;
+            text-shadow: none;
+            transition: all 400ms;
+
+            span {
+              display: block;
+              position: relative;
+              top: 2px;
+            }
+            &--checked{
+              background: $green;
+              span{
+                top: 0;
+                transform: rotate(45deg) scale(-1, 1);
+              }
+            }
+          }
+        }
+
+        &:nth-child(odd) {
+          background: $shadow;
+        }
+        &--checked {
+          th {
+            color: $green !important;
+            text-shadow: 0 0 20px $green !important;
+          }
+        }
+        &:hover {
+          box-shadow: inset 0 0 0 2px $white;
+        }
+      }
+    }
+
+  }
+
+  .shadow {
+    display: block;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: $shadow;
+    z-index: 6;
+    opacity: 1;
+    transition: opacity 800ms;
+    &--closed {
+      z-index: -1;
+      opacity: 0;
+    }
+  }
+}

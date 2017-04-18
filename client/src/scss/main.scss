@@ -6,6 +6,7 @@
 @import 'dropBox.scss';
 @import 'checkbox.scss';
 @import 'menu.scss';
+@import 'test.scss';
 
 html {
   //overflow-y: hidden;
@@ -42,6 +43,7 @@ body {
     color: $white;
     text-align: center;
     text-transform: uppercase;
+    user-select: none;
     @include text-shadow-3d-big;
   }
 }

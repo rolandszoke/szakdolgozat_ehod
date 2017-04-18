@@ -7,5 +7,6 @@
 	"question": "Kinek a fényképét látja a legtöbb hód?",
 	"mainImage": "src/img/nepszeruseg/graph.png",
 	"answerImages": ["src/img/nepszeruseg/1.png","src/img/nepszeruseg/2.png","src/img/nepszeruseg/3.png","src/img/nepszeruseg/4.png"],
-	"answer":[1]
+	"answer":[1],
+	"id": 13
 }
