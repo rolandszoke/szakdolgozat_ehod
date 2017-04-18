@@ -5,76 +5,105 @@ class Game extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            allGames: require("json-loader!../../json/games.json"),
-            selectableGames: [],
-            gameMode: props.gameMode,
-            modifiers: props.modifiers,
-            currentGameData: null,
-            flip: "game--noflip",
-            front: " ",
-            back: "back--wrong",
-            backText: null,
-            correctAnswers: 0,
-            timer: setTimeout(function () {
+            allGames: require("json-loader!../../json/games.json"), //összes játékfájl neve jsonbe rendezve
+            selectableGames: [], //a kiválasztható játékok listája az adott szűrést alkalmazva
+            gameMode: props.gameMode, //kiválasztott játékmód
+            modifiers: props.modifiers, //kiválasztott nehézségi szintek
+            currentGameData: null, //jelenlegi játék adata
+            flip: "game--noflip", //--noflip: játék felület mutatása; --flip: visszajelzési felület
+            front: " ", //játék felület ablakot módosító class
+            back: "back--wrong", //visszajelzési felületet módosító class
+            backContent: null, //visszajelzési felület taartalma
+            correctAnswers: 0, //helyes válaszok számlálója
+            timer: setTimeout(function () { //időzítő a time játékmódhoz
             }, 900000),
+            testCode: "", //teszt kódja
         };
 
     }
 
-    componentDidUpdate() {
-        console.log(this.state);
-    }
-
-    componentDidMount() {
-        console.log(this.state);
-    }
-
     componentWillMount() {
-        this.getGames(this.state.gameMode, this.state.modifiers);
+        //első indítás
+        this.setUp(this.state);
     }
 
     componentWillReceiveProps(nextProps) {
-        if (nextProps.gameMode[0] === "Időre") {
+        //módosult játékmód utáni beállítások
+        this.setUp(nextProps);
+    }
+
+    setUp(props) {
+        //válaszút játékmódok között
+        if (props.gameMode[0] === "Időre") {
             this.setState({front: "front--time", correctAnswers: 0});
-            this.counter();
+            this.counter(); //időzítő beállítása
+            this.getGames(props.gameMode, props.modifiers);
+        } else if (props.gameMode[0] === "Teszt") {
+            let content = this.renderTestInput();
+            this.setState({
+                flip: "game--flip", back: "back--test", front: "front--test",
+                backContent: content, gameMode: "Test", correctAnswers: 0
+            });
+            clearTimeout(this.state.timer); //időzítő nullázása
         } else {
             this.setState({front: " "});
-            clearTimeout(this.state.timer);
+            clearTimeout(this.state.timer); //időzítő nullázása
+            this.getGames(props.gameMode, props.modifiers);
         }
-        this.getGames(nextProps.gameMode, nextProps.modifiers);
     }
 
     getGames(gm, mod) {
+        //kiválasztható játékok beállítása, adott szűrési paraméterekkel
         let games = [];
+        let testGamesArray = this.state.testCode.split(';'); //teszt feladatainak idjai
         this.state.allGames.games.forEach(function (element) {
-            let g = (require("../../json/" + element));
-            if (gm[1] === "Összes") {
-                games.push(g);
+            let g = (require("../../json/" + element)); //játékfájl beetöltése
+            if (gm[0] === "Teszt") {
+                //teszt esetén akkor rakjuk bele a játékot a választhatók közé, ha szerepel az id-ja a kódban
+                let index = testGamesArray.indexOf(g.id.toString());
+                if (index !== -1) {
+                    games.push(g);
+                }
             } else {
-                let BreakException = {};
-                try {
-                    mod.forEach(function (m) {
-                        let text = gm[1] + " - " + m;
-                        if (g.level.toString().includes(text)) {
-                            games.push(g);
-                            throw BreakException;
-                        }
-                    });
-                } catch (e) {
-                    if (e !== BreakException) console.log("error");
+                if (gm[1] === "Összes") {
+                    games.push(g);
+                } else {
+                    let BreakException = {};
+                    try {
+                        mod.forEach(function (m) {
+                            let text = gm[1] + " - " + m;
+                            if (g.level.toString().includes(text)) {
+                                games.push(g);
+                                throw BreakException;
+                            }
+                        });
+                    } catch (e) {
+                        if (e !== BreakException) console.log("error");
+                    }
                 }
             }
         });
-        this.newGame(games, gm, mod);
+        this.newGame(games, gm, mod); //aktuális játék kiválasztása
     }
 
     newGame(games, gm, mod) {
+        //aktuális játék kiválasztása
         if (games.length === 0) {
-            console.log("Reset selectable games!");
-            this.getGames(this.state.gameMode, this.state.modifiers);
+            if (gm[0] === "Teszt") {
+                //Tesztnél, ha elfogytak a játékok nem indítjuk újra, kiírjuk a végeredményt
+                this.setState({
+                    back: "back--test",
+                    backContent: <div className="testUI"><p className="testUI__text">Gratulálok, végeztél!</p><p
+                        className="testUI__text">Helyes válaszaid száma: {this.state.correctAnswers}</p></div>,
+                    flip: "game--flip"
+                });
+            } else {
+                //ha a kiválasztható játékok száma nulla, reseteljük a listájukat a getGames metódussal
+                this.getGames(this.state.gameMode, this.state.modifiers);
+            }
         } else {
-            let game = games[Math.floor(Math.random() * games.length)];
-            games.splice(games.indexOf(game), 1);
+            let game = games[Math.floor(Math.random() * games.length)]; //random kiválasztunk egy játékot
+            games.splice(games.indexOf(game), 1); //kivesszük őt a kiválaszthatók közül
             this.setState({
                 flip: "game--noflip", currentGameData: game, gameMode: gm,
                 modifiers: mod, selectableGames: games
@@ -83,32 +112,35 @@ class Game extends Component {
     }
 
     counter() {
+        //időzítő beállítása
         let _this = this;
         clearTimeout(this.state.timer);
         this.setState({
             timer: setTimeout(function () {
                 _this.setState({
                     back: "back--info",
-                    backText: "Lejárt az időd! Helyes válaszaid száma: " + _this.state.correctAnswers,
+                    backContent: "Lejárt az időd! Helyes válaszaid száma: " + _this.state.correctAnswers,
                     flip: "game--flip"
                 });
-            }, 60000)
+            }, 60000) //időzítő hossza: 60000 = 1 perc
         })
     }
 
     checkAnswer(correct, received) {
+        //adott választ összehasonlítása a helyes válasszal
         console.log("check if good: " + received + " for: " + correct);
         if (arraysEqual(correct, received)) {
             this.setState({
                 back: "back--right",
-                backText: <img src="src/svg/check.svg"></img>,
-                correctAnswers: this.state.correctAnswers + 1
-            });
+                backContent: <img src="src/svg/check.svg"/>,
+                correctAnswers: this.state.correctAnswers + 1,
+                flip: "game--flip"
+            }); //helyes
         } else {
-            this.setState({back: "back--wrong", backText: "X"});
+            this.setState({back: "back--wrong", backContent: "X", flip: "game--flip"}); //helytelen
         }
-        this.setState({flip: "game--flip"});
-        if (this.state.gameMode[0] === "Időre") {
+        if (this.state.gameMode[0] === "Időre" || this.state.gameMode[0] === "Teszt") {
+            //időre játszásnál  vagy tesztnél 0,75 másodperc múlva azonnal kapjuk az új játékot (nem kattintásra történi a játék váltás)
             let _this = this;
             setTimeout(
                 function () {
@@ -118,27 +150,46 @@ class Game extends Component {
     }
 
     handleClick(i) {
+        //válasz megadása értékelésre
         if (this.state.currentGameData.type === "checkbox") {
+            //checkboxos feladatoknál sorbarendezzük az adatokat
             this.checkAnswer(this.state.currentGameData.answer.sort(), i.sort());
         } else {
             this.checkAnswer(this.state.currentGameData.answer, i);
         }
     }
 
+    changeCode(event) {
+        this.setState({testCode: event.target.value});
+    }
+
+    renderTestInput() {
+        return (
+            <div className="testUI">
+                <p className="testUI__text">Adja meg a teszt kódját:</p>
+                <input type="text" className="testUI__input" onChange={this.changeCode.bind(this)}/>
+                <div className="testUI__send"
+                     onClick={() => this.getGames(["Teszt", "Összes"], ["Könnyű", "Közepes", "Nehéz"])}>Küldés
+                </div>
+            </div>
+        )
+    }
+
     render() {
-        let levels = [];
+        let levels = []; //adott játék szintjei, nehézséggel
         this.state.currentGameData.level.forEach(function (element) {
             levels.push(element + "; ");
         });
 
-        let paragraphs = [];
+        let paragraphs = []; //adott játék leírása
         this.state.currentGameData.description.forEach(function (element, index) {
             paragraphs.push(<p key={index}>{element}</p>);
         });
 
-        let backClickEvent = this.state.gameMode[0] === "Időre" ? () => "" : () => this.newGame(this.state.selectableGames,
-                this.state.gameMode, this.state.modifiers);
-
+        //amennyiben nem felfedezőbe játszunk kattintásra nem kapunk új játékot
+        let backClickEvent = this.state.gameMode[0] === "Felfedező" ?
+            () => this.newGame(this.state.selectableGames, this.state.gameMode, this.state.modifiers)
+            : () => "";
 
         return (
             <div className={"game " + this.state.flip}>
@@ -149,7 +200,7 @@ class Game extends Component {
                             <h3 className="level">Szintek: {levels}</h3>
                         </div>
                         <div className="game__info__description">{paragraphs}</div>
-                        <img src={this.state.currentGameData.mainImage} width="auto" height="auto"></img>
+                        <img src={this.state.currentGameData.mainImage} width="auto" height="auto"/>
                         <p className="game__info__question">{this.state.currentGameData.question}</p>
                     </div>
                     <div className="game__board">
@@ -161,7 +212,7 @@ class Game extends Component {
                 </div>
                 <div className={"back " + this.state.back}
                      onClick={backClickEvent}>
-                    <p className="back__text">{this.state.backText}</p>
+                    <div className="back__content">{this.state.backContent}</div>
                 </div>
             </div>
         );
@@ -169,6 +220,7 @@ class Game extends Component {
 }
 
 function arraysEqual(arr1, arr2) {
+    //paraméterben megadott listák egyenlőek-e
     if (arr1.length !== arr2.length)
         return false;
     for (let i = arr1.length; i--;) {

@@ -298,7 +298,7 @@ $menu-items: 9;
   }
 
   input[type=checkbox] {
-    @include sideButton($green)
+    @include sideButton($turquoise)
   }
 
   input[type=radio] {
@@ -331,6 +331,18 @@ $menu-items: 9;
       }
     }
     @include timer('input[type=radio]', 60, 75px, $blue, "none");
+  }
+
+  &--Teszt {
+    input[type=radio] {
+      @include sideButton($purple);
+    }
+  }
+
+  &--Felfedező {
+    input[type=radio] {
+      @include sideButton($green);
+    }
   }
 
   label {

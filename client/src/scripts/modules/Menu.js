@@ -48,9 +48,9 @@ class Menu extends Component {
             <nav className={"menu " + classes} key={classes}>
                 <input type="checkbox" className="menu__open" id="menu__open"/>
                 <label className="menu__open__button">
-                    <span className="line line--1"></span>
-                    <span className="line line--2"></span>
-                    <span className="line line--3"></span>
+                    <span className="line line--1"/>
+                    <span className="line line--2"/>
+                    <span className="line line--3"/>
                 </label>
                 {elements}
                 <div className="menu__bg">
@@ -63,7 +63,6 @@ class Menu extends Component {
 
     render() {
         let checkboxes_1 = ["Könnyű", "Közepes", "Nehéz"];
-        //let checkboxes_2 = ["DnD", "Check", "Button"];
         let radios_1 = ["Felfedező", "Időre", "Teszt"];
         let radios_2 = ["Kishód", "Benjamin", "Kadét", "Junior", "Senior", "Összes"];
         let checkboxes = [];
@@ -72,9 +71,6 @@ class Menu extends Component {
         checkboxes_1.forEach(function (element) {
             checkboxes.push(_this.renderCheckbox(element, "1"));
         });
-        /*checkboxes_2.forEach(function (element) {
-         checkboxes.push(_this.renderCheckbox(element, "2"));
-         });*/
         radios_1.forEach(function (element) {
             radios.push(_this.renderRadio(element, "1"));
         });

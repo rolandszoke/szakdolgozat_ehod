@@ -38,7 +38,10 @@
   },
   "homepage": "https://github.com/G-CorpDev/project#readme",
   "dependencies": {
+    "react": "^15.5.4",
+    "react-copy-to-clipboard": "^4.3.0",
     "react-dnd": "^2.3.0",
-    "react-dnd-html5-backend": "^2.3.0"
+    "react-dnd-html5-backend": "^2.3.0",
+    "react-tools": "^0.13.3"
   }
 }

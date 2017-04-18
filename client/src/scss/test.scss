@@ -1,38 +1,6 @@
 @import 'mixin.scss';
 @import 'colors.scss';
 
-@mixin button($color) {
-  width: 100px;
-  height: 40px;
-  border-radius: 8px;
-  color: white;
-  text-align: center;
-  text-decoration: none;
-  font: 700 10px 'Syncopate', sans-serif;
-  text-transform: uppercase;
-  user-select: none;
-  cursor: pointer;
-  transition: box-shadow ease-in-out 350ms, background ease-in-out 350ms, transform ease-in-out 130ms;
-  background: $shadow--light;
-  box-shadow: 0 0 10px 0 $color inset, 0 0 0 0 $color, 0 5px 0 0 darken($shadow, 10%);
-
-  &:hover {
-    box-shadow: 0 0 20px 0 $color inset, 0 0 10px 0 $color, 0 5px 0 0 darken($shadow, 7%);
-  }
-  &:active {
-    transform: translate3d(0, 2px, 0);
-    background: rgba($color, 0.3);
-    box-shadow: 0 2px 20px 0 $color inset, 0 2px 30px 0 $color, 0 3px 0 0 darken(rgba($color, 0.3), 30%);
-  }
-
-  span {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-}
-
 .createTest {
 
   &__opener {
@@ -74,16 +42,15 @@
     transition: top 800ms;
     overflow: hidden;
     //animation: purpleNeonSmall 1.5s ease-in-out infinite alternate;
-    box-shadow:
-            0 15px 80px 5px $shadow--light,
-            0 55px 50px -35px $shadow--light;
+    box-shadow: 0 15px 80px 5px $shadow--light,
+    0 55px 50px -35px $shadow--light;
 
     &--closed {
       top: -900px;
       transition: top 1300ms;
     }
 
-    @media (max-width: 900px) {
+    @media (max-width: 700px) {
       width: 100%;
     }
 
@@ -127,7 +94,7 @@
         right: 50%;
         @include button($green);
       }
-      &--cancel {
+      &--close {
         left: 50%;
         @include button($yellow);
       }
@@ -158,7 +125,7 @@
           position: fixed;
           z-index: 3;
           width: 100%;
-          tr{
+          tr {
             display: table;
             width: 100%;
           }
@@ -177,11 +144,11 @@
             }
           }
         }
-        tbody{
+        tbody {
           display: table;
           width: 100%;
           position: relative;
-          top:33px;
+          top: 33px;
         }
       }
 
@@ -198,19 +165,20 @@
           font-size: 16px;
           line-height: 1.2;
           text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
+          cursor: pointer;
 
           &:nth-child(even) {
             border-left: 3px solid $white;
             padding: 5px 5px 5px 10px;
           }
 
-          .check{
+          .check {
             width: 25px;
             height: 25px;
             position: absolute;
             left: 5px;
-            top:50%;
-            transform: translate(0,-50%);
+            top: 50%;
+            transform: translate(0, -50%);
             background: $red;
             border-radius: 100%;
             cursor: pointer;
@@ -224,9 +192,9 @@
               position: relative;
               top: 2px;
             }
-            &--checked{
+            &--checked {
               background: $green;
-              span{
+              span {
                 top: 0;
                 transform: rotate(45deg) scale(-1, 1);
               }
@@ -249,6 +217,77 @@
       }
     }
 
+  }
+
+  .popup {
+    display: block;
+    position: fixed;
+    width: auto;
+    height: auto;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: $purple;
+    border-radius: 10px;
+    animation: purpleNeonSmall 1.5s ease-in-out infinite alternate;
+    z-index: 99;
+    opacity: 1;
+    transition: opacity 800ms;
+    &--closed {
+      visibility: hidden;
+      z-index: -1;
+      opacity: 0;
+    }
+
+    &__copy {
+      display: block;
+      position: relative;
+      @include button($green);
+      width: 70px;
+      height: 20px;
+      padding-top: 10px;
+      margin: 7px auto 15px;
+    }
+
+    &__close {
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 5px 3px 5px 5px;
+      background: $red;
+      border-radius: 0 10px 0 80%;
+      color: $white;
+      font: 700 15px 'Syncopate', sans-serif;
+      text-align: center;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 300ms;
+
+      &:hover {
+        font: 700 20px 'Syncopate', sans-serif;
+        padding: 8px 6px 8px 8px;
+      }
+    }
+
+    .code {
+      display: block;
+      position: relative;
+      padding: 5px 10px;
+      margin: 22px 30px 10px;
+
+      background: $white;
+      border-radius: 3px;
+      font: 700 19px 'Syncopate', sans-serif;
+      color: $purple;
+      text-align: center;
+      text-transform: uppercase;
+      user-select: text;
+
+      &--copied {
+        color: $white;
+        background: $green;
+      }
+    }
   }
 
   .shadow {

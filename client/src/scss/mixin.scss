@@ -72,6 +72,38 @@ $big3d: //    3d
   box-shadow: $small3d;
 }
 
+@mixin button($color) {
+  width: 100px;
+  height: 40px;
+  border-radius: 8px;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font: 700 10px 'Syncopate', sans-serif;
+  text-transform: uppercase;
+  user-select: none;
+  cursor: pointer;
+  transition: box-shadow ease-in-out 350ms, background ease-in-out 350ms, transform ease-in-out 130ms;
+  background: $shadow--light;
+  box-shadow: 0 0 10px 0 $color inset, 0 0 0 0 $color, 0 5px 0 0 darken($shadow, 10%);
+
+  &:hover {
+    box-shadow: 0 0 20px 0 $color inset, 0 0 10px 0 $color, 0 5px 0 0 darken($shadow, 7%);
+  }
+  &:active {
+    transform: translate3d(0, 2px, 0);
+    background: rgba($color, 0.3);
+    box-shadow: 0 2px 20px 0 $color inset, 0 2px 30px 0 $color, 0 3px 0 0 darken(rgba($color, 0.3), 30%);
+  }
+
+  span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
 @mixin neonColor($color) {
   from {
     box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px $color, 0 0 70px $color, 0 0 80px $color, 0 0 100px $color, 0 0 150px $color;
@@ -109,6 +141,10 @@ $big3d: //    3d
 
 @keyframes blueNeon {
   @include neonColor($blue);
+}
+
+@keyframes purpleNeon {
+  @include neonColor($purple);
 }
 
 @keyframes blueNeonSmall {

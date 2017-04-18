@@ -54,7 +54,7 @@ class Buttons extends Component {
             buttons1.push(_this.renderButton(index));
         });
         this.state.multiplePressed.forEach(function (element, index) {
-            pressed.push(<img key={index} src={_this.state.answerImages[element]} width="20px" height="20px"></img>)
+            pressed.push(<img key={index} src={_this.state.answerImages[element]} width="20px" height="20px"/>)
         });
         if (this.state.multiple === "yes") {
             buttons2.push(<Button key="send" value="none" classes="send"

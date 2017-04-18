@@ -58,6 +58,9 @@
     &.front--time {
       animation: blueNeonSmall 1.5s ease-in-out infinite alternate;
     }
+    &.front--test {
+      animation: purpleNeonSmall 1.5s ease-in-out infinite alternate;
+    }
   }
 
   .back {
@@ -75,7 +78,8 @@
     &.back--info {
       background: linear-gradient(to bottom right, #1f7ddb, #6cb6db);
       animation: blueNeon 1.5s ease-in-out infinite alternate;
-      p {
+      cursor: default;
+      .back__content {
         width: 80%;
         padding: 20px;
         font-size: 50px;
@@ -85,7 +89,41 @@
       }
     }
 
-    .back__text {
+    &.back--test {
+      background: linear-gradient(to bottom right, #8e44ad, #cf66ff);
+      animation: purpleNeon 1.5s ease-in-out infinite alternate;
+      cursor: default;
+      .back__content {
+        width: 80%;
+        .testUI{
+          &__text{
+            padding: 0 20px;
+            margin: 20px 0;
+            font-size: 40px;
+            text-transform: uppercase;
+            @include text-shadow-3d-small;
+            line-height: 55px;
+          }
+          input {
+            padding: 3px;
+            font-size: 20px;
+            border-radius: 6px;
+          }
+          &__send{
+            @include button($green);
+            display: block;
+            position: relative;
+            margin: 20px auto;
+            padding-top: 20px;
+            width: 160px;
+            height: 40px;
+            font-size: 25px;
+          }
+        }
+      }
+    }
+
+    .back__content {
       position: absolute;
       top: 50%;
       left: 50%;

@@ -7,29 +7,35 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            gameMode: ["Felfedező", "Összes"],
-            modifiers: ["Könnyű", "Közepes", "Nehéz"],
-            createTest: true,
+            gameMode: ["Felfedező", "Összes"], //kiválasztott játék mód
+            modifiers: ["Könnyű", "Közepes", "Nehéz"], //kiválaszott nehézségi szintek
+            createTest: false, //ha igaz, akkor a feladat ablak bezárva lesz
         };
     }
 
-    checkCreateTest(bool) {
-        this.setState({createTest: bool});
+    openCreateTest(bool) {
+        this.setState({
+            createTest: bool,
+            gameMode: ["Felfedező", "Összes"],
+            modifiers: ["Könnyű", "Közepes", "Nehéz"]
+        }); //tesztet készítő ablak megnyitása/bezárása
     }
 
     changeGameMode(e, g) {
+        //játékmód módosítása
         let gameMode = this.state.gameMode.slice();
         gameMode[g - 1] = e;
-        if(gameMode[0]==="Időre" && parseInt(g)===2){
-            gameMode[0]="Felfedező";
+        if (gameMode[0] !== "Felfedező" && parseInt(g) === 2) {
+            gameMode[0] = "Felfedező"; //időre játszás közbe módosítunk játékmódot visszaugrunk felfedezőre
         }
-        if(gameMode[0]==="Teszt" || gameMode[1]==="Összes"|| gameMode[0]==="Időre"){
-            this.setState({modifiers: ["Könnyű", "Közepes", "Nehéz"]});
+        if (gameMode[0] === "Teszt" || gameMode[1] === "Összes" || gameMode[0] === "Időre") {
+            this.setState({modifiers: ["Könnyű", "Közepes", "Nehéz"]}); //adott játékmódoknál tilos nehézségi szintet váltani
         }
         this.setState({gameMode: gameMode});
     }
 
     changeModifiers(e) {
+        //nehézségi szint módosítás
         let modifiers = this.state.modifiers.slice();
         let index = modifiers.indexOf(e);
         if (index > -1) {
@@ -44,12 +50,12 @@ class App extends Component {
     render() {
         return (
             <div className="app">
-                <Menu changeGameMode={(e,g) => this.changeGameMode(e,g)}
+                <Menu changeGameMode={(e, g) => this.changeGameMode(e, g)}
                       changeModifiers={(e) => this.changeModifiers(e)}
                       gameMode={this.state.gameMode}
                       modifiers={this.state.modifiers}
                 />
-                <CreateTest checkCreateTest={(i) => this.checkCreateTest(i)}/>
+                <CreateTest openCreateTest={(i) => this.openCreateTest(i)}/>
                 <h1>E-hod</h1>
                 {this.state.createTest ? "" : <Game gameMode={this.state.gameMode} modifiers={this.state.modifiers}/>}
                 <div className="bg" style={{background: 'url(src/img/background.jpg) no-repeat 0 0'}}></div>
