@@ -27,7 +27,7 @@ class CreateTest extends Component {
     }
 
     getCode() {
-        //kód készítése
+        //kód elkészítése
         let code = "";
         this.state.checked.forEach(function (e) {
             code += e + ";";
@@ -37,7 +37,6 @@ class CreateTest extends Component {
 
     copy() {
         //kód másolásának visszajelzése
-        //window.alert("Kód másolva!");
         this.setState({copied: true});
     }
 

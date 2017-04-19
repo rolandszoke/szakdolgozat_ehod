@@ -5,14 +5,15 @@ class Buttons extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            answerImages: props.answerImages,
-            onClick: props.onClick,
-            multiple: props.multiple,
-            multiplePressed: [],
+            answerImages: props.answerImages, //gombokhoz tartozó képek
+            onClick: props.onClick, //gombokra kattintás metódusa
+            multiple: props.multiple, //paraméter, mely megadja, hogy csak egy vagy több gombot lehet megnyomni a válaszadáshoz
+            multiplePressed: [], //megnyomott gombok
         };
     }
 
     componentWillReceiveProps(nextProps) {
+        //új játéknél adatok alaphelyzetbe állítása
         this.setState({
             answerImages: nextProps.answerImages,
             onClick: nextProps.onClick,
@@ -22,6 +23,7 @@ class Buttons extends Component {
     }
 
     multipleClick(e) {
+        //többszörös gomblenyomású játéknál lementjük a megnyomott gombot
         console.log(e + ". clicked");
         let pressed = this.state.multiplePressed.slice();
         pressed.push(e);
@@ -31,17 +33,21 @@ class Buttons extends Component {
     }
 
     resetButtons() {
+        //reset gomb metódusa
         this.setState({multiplePressed: []}, function () {
             console.log(this.state.multiplePressed)
         });
     }
 
     renderButton(i) {
-        if (this.state.multiple === "yes") {
+        //egy gomb elkészítése
+        if (this.state.multiple === "yes") { //többszörös gomb lenyomás
             return <Button key={i} value={this.state.answerImages[i]} classes="btn--multiple"
                            onClick={() => this.multipleClick(i)}/>;
+        } else { //egyszeres gomb lenyomás
+            return <Button key={i} value={this.state.answerImages[i]} classes=""
+                           onClick={() => this.state.onClick([i])}/>;
         }
-        return <Button key={i} value={this.state.answerImages[i]} classes="" onClick={() => this.state.onClick([i])}/>;
     }
 
     render() {
@@ -49,19 +55,20 @@ class Buttons extends Component {
         let buttons1 = [];
         let buttons2 = [];
         let pressed = [];
-
+        //gombok renderelése
         this.state.answerImages.forEach(function (element, index) {
             buttons1.push(_this.renderButton(index));
         });
+        //lenyomott gombok megjelenítése
         this.state.multiplePressed.forEach(function (element, index) {
             pressed.push(<img key={index} src={_this.state.answerImages[element]} width="20px" height="20px"/>)
         });
+        //küldés és nullázás gomb elkészítése
         if (this.state.multiple === "yes") {
             buttons2.push(<Button key="send" value="none" classes="send"
-                                 onClick={() => this.state.onClick(this.state.multiplePressed)}/>,
+                                  onClick={() => this.state.onClick(this.state.multiplePressed)}/>,
                 <Button key="reset" value="none" classes="reset"
                         onClick={() => this.resetButtons()}/>);
-
         }
 
         return (

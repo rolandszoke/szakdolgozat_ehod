@@ -1,6 +1,7 @@
 @import 'mixin.scss';
 @import 'colors.scss';
 
+//játék "kártya"
 .game {
   display: inline-block;
   position: relative;
@@ -24,6 +25,7 @@
     width: 97%;
   }
 
+  //kártya eleje, hátulja
   .front,
   .back {
     display: table;
@@ -36,13 +38,15 @@
     box-shadow: 0 15px 80px -15px $shadow--light, 0 55px 50px -35px $shadow--light;
   }
 
+  //kártya eleje
   .front {
     display: grid;
     min-height: 800px;
-    //max-height: 850px;
     transform: rotateY(0deg);
     background: $background-app;
     margin-bottom: 30px;
+
+    //interakciós felület
     .game__board {
       display: table-row;
       p {
@@ -55,14 +59,15 @@
         }
       }
     }
-    &.front--time {
+    &.front--time { //kártya eleje időre játszásnál
       animation: blueNeonSmall 1.5s ease-in-out infinite alternate;
     }
-    &.front--test {
+    &.front--test { //kártya eleje tesztnél
       animation: purpleNeonSmall 1.5s ease-in-out infinite alternate;
     }
   }
 
+  //kártya hátulja
   .back {
     height: 100%;
     cursor: pointer;
@@ -70,12 +75,12 @@
     background: linear-gradient(to bottom right, #009970, #84DD63);
     animation: greenNeon 1.5s ease-in-out infinite alternate;
 
-    &.back--wrong {
+    &.back--wrong { //helytelen válasz esetén
       background: linear-gradient(to bottom right, #992020, #dd4347);
       animation: redNeon 1.5s ease-in-out infinite alternate;
     }
 
-    &.back--info {
+    &.back--info { //időre játszásnál, ha lejárt az idő
       background: linear-gradient(to bottom right, #1f7ddb, #6cb6db);
       animation: blueNeon 1.5s ease-in-out infinite alternate;
       cursor: default;
@@ -89,14 +94,14 @@
       }
     }
 
-    &.back--test {
+    &.back--test { //tesztnél
       background: linear-gradient(to bottom right, #8e44ad, #cf66ff);
       animation: purpleNeon 1.5s ease-in-out infinite alternate;
       cursor: default;
       .back__content {
         width: 80%;
-        .testUI{
-          &__text{
+        .testUI {
+          &__text {
             padding: 0 20px;
             margin: 20px 0;
             font-size: 40px;
@@ -109,7 +114,7 @@
             font-size: 20px;
             border-radius: 6px;
           }
-          &__send{
+          &__send {
             @include button($green);
             display: block;
             position: relative;
@@ -142,25 +147,25 @@
     transform: rotateY(0deg);
   }
 
-  .game__info {
+  //játék információi
+  &__info {
     position: relative;
-    height: auto;
+    height: auto;;
 
-    img {
+    //fő kép
+    &__img {
       border-radius: 0.3em;
-      //box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
-      //background: $shadow--veryLight;
       margin: 0 10px 10px;
       max-width: 75%;
       max-height: 270px;
       transition: all 400ms;
       &:hover {
-        //box-shadow: 0 5px 80px rgba(0, 0, 0, 0.5);
-        background: rgba($white,1);
-        transform: scale(1.4);
+        background: rgba($white, 1);
+        transform: scale(1.3);
       }
     }
 
+    //játék leírás
     &__description {
       margin: 0 30px;
       padding: 9px;
@@ -176,38 +181,35 @@
       }
     }
 
-    &__basic {
+    //játék fejléce
+    &__header {
       position: relative;
       background: rgba(0, 0, 0, 0.2);
       overflow: hidden;
       border-radius: 10px 10px 0 0;
       padding-bottom: 10px;
 
+      //cím
       .title {
         display: inline-block;
         margin-top: 20px;
         text-transform: uppercase;
       }
 
+      //szintek
       .level {
         margin: 5px 10px;
         text-transform: uppercase;
       }
     }
 
+    //kérdés
     &__question {
-      /*position: absolute;
-      bottom: 10px;
-      left: 50%;
-      width: 80%;
-      transform: translate(-50%,0);*/
-      font-family:  'Roboto', Arial, sans-serif;
+      text-align: center;
+      margin: 10px 75px;
+      font-family: 'Roboto', Arial, sans-serif;
       font-size: 19px;
       text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
-      margin: 10px 0;
-      //text-transform: uppercase;
     }
-
   }
-
 }

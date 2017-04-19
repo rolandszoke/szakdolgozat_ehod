@@ -9,7 +9,7 @@ class App extends Component {
         this.state = {
             gameMode: ["Felfedező", "Összes"], //kiválasztott játék mód
             modifiers: ["Könnyű", "Közepes", "Nehéz"], //kiválaszott nehézségi szintek
-            createTest: false, //ha igaz, akkor a feladat ablak bezárva lesz
+            createTest: false, //ha igaz, akkor a feladat ablak nem jelenik meg
         };
     }
 
@@ -18,7 +18,7 @@ class App extends Component {
             createTest: bool,
             gameMode: ["Felfedező", "Összes"],
             modifiers: ["Könnyű", "Közepes", "Nehéz"]
-        }); //tesztet készítő ablak megnyitása/bezárása
+        }); //tesztet készítő ablak megnyitása/bezárása, feladat ablak alaphelyzetbe állítása
     }
 
     changeGameMode(e, g) {
@@ -26,7 +26,7 @@ class App extends Component {
         let gameMode = this.state.gameMode.slice();
         gameMode[g - 1] = e;
         if (gameMode[0] !== "Felfedező" && parseInt(g) === 2) {
-            gameMode[0] = "Felfedező"; //időre játszás közbe módosítunk játékmódot visszaugrunk felfedezőre
+            gameMode[0] = "Felfedező"; //ha a korosztályt módosítjuk, visszaugrunk felfedezőre
         }
         if (gameMode[0] === "Teszt" || gameMode[1] === "Összes" || gameMode[0] === "Időre") {
             this.setState({modifiers: ["Könnyű", "Közepes", "Nehéz"]}); //adott játékmódoknál tilos nehézségi szintet váltani
@@ -56,9 +56,9 @@ class App extends Component {
                       modifiers={this.state.modifiers}
                 />
                 <CreateTest openCreateTest={(i) => this.openCreateTest(i)}/>
-                <h1>E-hod</h1>
+                <h1 className="app__title">E-hod</h1>
                 {this.state.createTest ? "" : <Game gameMode={this.state.gameMode} modifiers={this.state.modifiers}/>}
-                <div className="bg" style={{background: 'url(src/img/background.jpg) no-repeat 0 0'}}></div>
+                <div className="app__bg" style={{background: 'url(src/img/background.jpg) no-repeat 0 0'}}></div>
             </div>
         );
     }

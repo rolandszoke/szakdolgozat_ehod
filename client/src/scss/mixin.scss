@@ -2,7 +2,7 @@
 
 $small3d: //    3d
         0 1px 0 #ccc,
-        //0 2px 0 #c9c9c9,
+          //0 2px 0 #c9c9c9,
           //    drop shadow
         0 6px 1px rgba(0, 0, 0, 0.10),
         0 0px 5px rgba(0, 0, 0, 0.10),
@@ -164,14 +164,16 @@ $big3d: //    3d
 }
 
 @mixin timer($item, $duration, $size, $color, $border, $hover: running) {
-  #{$item}, #{$item} * { box-sizing: border-box; }
+  #{$item}, #{$item} * {
+    box-sizing: border-box;
+  }
 
   #{$item}:checked ~ label {
     width: $size;
     height: $size;
     background: white;
 
-    &::before{
+    &::before {
       content: "";
       left: 0;
       width: 50%;
@@ -196,7 +198,7 @@ $big3d: //    3d
       z-index: 300;
       border-bottom-left-radius: 75px;
       border-top-left-radius: 75px;
-      animation: opa $duration + s steps(1,end);
+      animation: opa $duration + s steps(1, end);
       opacity: 1;
     }
 
@@ -211,20 +213,20 @@ $big3d: //    3d
       border-radius: 0 100% 100% 0 / 0 50% 50% 0;
       border: #{$border};
       border-left: none;
-      animation: opa $duration + s steps(1,end) reverse;
+      animation: opa $duration + s steps(1, end) reverse;
       opacity: 0;
     }
 
-    &:hover::before,&:hover::after,&:hover div{
+    &:hover::before, &:hover::after, &:hover div {
       animation-play-state: $hover;
     }
   }
 
-  #{$item}:active{
-    & ~ label::after, & ~ label div, & ~ label::before{
+  #{$item}:active {
+    & ~ label::after, & ~ label div, & ~ label::before {
       animation: none;
     }
-    & ~ label::before,& ~ label::after {
+    & ~ label::before, & ~ label::after {
       opacity: 0;
     }
     & ~ label div {
@@ -236,12 +238,20 @@ $big3d: //    3d
   }
 
   @keyframes rota {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
   }
 
   @keyframes opa {
-    0% { opacity: 1; }
-    50%, 100% { opacity: 0; }
+    0% {
+      opacity: 1;
+    }
+    50%, 100% {
+      opacity: 0;
+    }
   }
 }

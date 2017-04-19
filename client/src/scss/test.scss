@@ -1,8 +1,10 @@
 @import 'mixin.scss';
 @import 'colors.scss';
 
+//teszt készítési felület
 .createTest {
 
+  //megnyitási felület
   &__opener {
     display: inline-block;
     position: relative;
@@ -15,6 +17,7 @@
     }
   }
 
+  //megnyitó gomb
   &__button {
     display: block;
     position: absolute;
@@ -28,6 +31,7 @@
     @include button($purple);
   }
 
+  //lista doboz
   .listBox {
     display: block;
     position: absolute;
@@ -41,10 +45,10 @@
     z-index: 10;
     transition: top 800ms;
     overflow: hidden;
-    //animation: purpleNeonSmall 1.5s ease-in-out infinite alternate;
     box-shadow: 0 15px 80px 5px $shadow--light,
     0 55px 50px -35px $shadow--light;
 
+    //lista zárva
     &--closed {
       top: -900px;
       transition: top 1300ms;
@@ -54,6 +58,7 @@
       width: 100%;
     }
 
+    //lista fejléce
     &__header {
       position: absolute;
       top: 0;
@@ -78,6 +83,7 @@
       }
     }
 
+    //lista lábfeje
     &__footer {
       position: absolute;
       bottom: 0;
@@ -86,6 +92,7 @@
       background: rgba($purple, 0.9);
     }
 
+    //küldése, bezárási gombok
     &__button {
       display: inline-block;
       position: absolute;
@@ -100,6 +107,7 @@
       }
     }
 
+    //táblázat a játékoknak
     .table {
       display: block;
       position: relative;
@@ -152,7 +160,7 @@
         }
       }
 
-      &__item {
+      &__item { //egy játék sora
 
         th {
           position: relative;
@@ -172,7 +180,7 @@
             padding: 5px 5px 5px 10px;
           }
 
-          .check {
+          .check { //check/cross icon
             width: 25px;
             height: 25px;
             position: absolute;
@@ -216,9 +224,9 @@
         }
       }
     }
-
   }
 
+  //popupbox a kódnak
   .popup {
     display: block;
     position: fixed;
@@ -239,7 +247,7 @@
       opacity: 0;
     }
 
-    &__copy {
+    &__copy { //másolási gomb
       display: block;
       position: relative;
       @include button($green);
@@ -249,7 +257,7 @@
       margin: 7px auto 15px;
     }
 
-    &__close {
+    &__close { //bezárási gomb
       position: absolute;
       top: 0;
       right: 0;
@@ -269,7 +277,7 @@
       }
     }
 
-    .code {
+    .code { //kód felülete
       display: block;
       position: relative;
       padding: 5px 10px;
@@ -290,6 +298,7 @@
     }
   }
 
+  //háttér árnyék
   .shadow {
     display: block;
     position: fixed;

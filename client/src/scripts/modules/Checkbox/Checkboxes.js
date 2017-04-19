@@ -6,14 +6,15 @@ class Checkboxes extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            checkImages: props.checkImages,
-            uncheckImages: props.uncheckImages,
-            onClick: props.onClick,
-            checked: [],
+            checkImages: props.checkImages, //kijelölt checkboxok képei
+            uncheckImages: props.uncheckImages, //ki nem jelölt checkboxos képei
+            onClick: props.onClick, //beküldés metódusa
+            checked: [], //kijelölt checkboxos listája
         };
     }
 
     componentWillReceiveProps(nextProps) {
+        //új játéknál az adatokat frissítjük
         this.setState({
             checkImages: nextProps.checkImages,
             uncheckImages: nextProps.uncheckImages,
@@ -23,6 +24,7 @@ class Checkboxes extends Component {
     }
 
     checkClick(e) {
+        //checkbox kijelölése
         console.log(e + ". clicked");
         let checked = this.state.checked.slice();
         let index = checked.indexOf(e);
@@ -37,16 +39,19 @@ class Checkboxes extends Component {
     }
 
     isChecked(e) {
+        //adott checkbox ki van-e jelölve
         let checked = this.state.checked.slice();
         let index = checked.indexOf(e);
         return (index > -1);
     }
 
-    resetBoxes(){
+    resetBoxes() {
+        //újraindítás gomb metódusa
         this.setState({checked: []});
     }
 
     renderCheckbox(i, rowNum) {
+        //checbox renderelése
         let checked = this.isChecked(i);
         return <Checkbox key={i} rowNum={rowNum} uncheck={this.state.uncheckImages[i]} check={this.state.checkImages[i]}
                          checkClick={() => this.checkClick(i)} checked={checked}/>;
@@ -55,7 +60,8 @@ class Checkboxes extends Component {
     render() {
         let _this = this;
         let checkboxes = [];
-        let rowNum = this.state.checkImages.length;
+        let rowNum = this.state.checkImages.length; //hány darab checkboxunk van (megjelenítéshez)
+        //checkboxok létrehozása
         this.state.checkImages.forEach(function (element, index) {
             checkboxes.push(_this.renderCheckbox(index, rowNum));
         });

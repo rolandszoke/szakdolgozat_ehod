@@ -9,11 +9,11 @@ class Game extends Component {
             selectableGames: [], //a kiválasztható játékok listája az adott szűrést alkalmazva
             gameMode: props.gameMode, //kiválasztott játékmód
             modifiers: props.modifiers, //kiválasztott nehézségi szintek
-            currentGameData: null, //jelenlegi játék adata
+            currentGameData: null, //jelenlegi játék adatai
             flip: "game--noflip", //--noflip: játék felület mutatása; --flip: visszajelzési felület
-            front: " ", //játék felület ablakot módosító class
-            back: "back--wrong", //visszajelzési felületet módosító class
-            backContent: null, //visszajelzési felület taartalma
+            front: " ", //játék felület ablakot módosító classok
+            back: "back--wrong", //visszajelzési felületet módosító classok
+            backContent: null, //visszajelzési felület tartalma
             correctAnswers: 0, //helyes válaszok számlálója
             timer: setTimeout(function () { //időzítő a time játékmódhoz
             }, 900000),
@@ -37,9 +37,9 @@ class Game extends Component {
         if (props.gameMode[0] === "Időre") {
             this.setState({front: "front--time", correctAnswers: 0});
             this.counter(); //időzítő beállítása
-            this.getGames(props.gameMode, props.modifiers);
+            this.getGames(props.gameMode, props.modifiers); //játékok beállítása
         } else if (props.gameMode[0] === "Teszt") {
-            let content = this.renderTestInput();
+            let content = this.renderTestInput(); //kód bemeneti felület biztosítása
             this.setState({
                 flip: "game--flip", back: "back--test", front: "front--test",
                 backContent: content, gameMode: "Test", correctAnswers: 0
@@ -48,16 +48,16 @@ class Game extends Component {
         } else {
             this.setState({front: " "});
             clearTimeout(this.state.timer); //időzítő nullázása
-            this.getGames(props.gameMode, props.modifiers);
+            this.getGames(props.gameMode, props.modifiers); //játékok beállítása
         }
     }
 
     getGames(gm, mod) {
         //kiválasztható játékok beállítása, adott szűrési paraméterekkel
         let games = [];
-        let testGamesArray = this.state.testCode.split(';'); //teszt feladatainak idjai
+        let testGamesArray = this.state.testCode.split(';'); //teszt feladatainak idjei
         this.state.allGames.games.forEach(function (element) {
-            let g = (require("../../json/" + element)); //játékfájl beetöltése
+            let g = (require("../../json/" + element)); //játékfájl betöltése
             if (gm[0] === "Teszt") {
                 //teszt esetén akkor rakjuk bele a játékot a választhatók közé, ha szerepel az id-ja a kódban
                 let index = testGamesArray.indexOf(g.id.toString());
@@ -65,6 +65,7 @@ class Game extends Component {
                     games.push(g);
                 }
             } else {
+                //egyéb játékmódnál szűrünk a megfelelö beállításokkal
                 if (gm[1] === "Összes") {
                     games.push(g);
                 } else {
@@ -102,6 +103,7 @@ class Game extends Component {
                 this.getGames(this.state.gameMode, this.state.modifiers);
             }
         } else {
+            //új játék kérése
             let game = games[Math.floor(Math.random() * games.length)]; //random kiválasztunk egy játékot
             games.splice(games.indexOf(game), 1); //kivesszük őt a kiválaszthatók közül
             this.setState({
@@ -127,7 +129,7 @@ class Game extends Component {
     }
 
     checkAnswer(correct, received) {
-        //adott választ összehasonlítása a helyes válasszal
+        //adott választ összehasonlítása a helyes válasszal az arraysEqual metódust használva
         console.log("check if good: " + received + " for: " + correct);
         if (arraysEqual(correct, received)) {
             this.setState({
@@ -160,10 +162,12 @@ class Game extends Component {
     }
 
     changeCode(event) {
+        //teszthez megadott kód módosítása
         this.setState({testCode: event.target.value});
     }
 
     renderTestInput() {
+        //teszt bemeneti felülete
         return (
             <div className="testUI">
                 <p className="testUI__text">Adja meg a teszt kódját:</p>
@@ -195,12 +199,12 @@ class Game extends Component {
             <div className={"game " + this.state.flip}>
                 <div className={"front " + this.state.front}>
                     <div className="game__info">
-                        <div className="game__info__basic">
+                        <div className="game__info__header">
                             <h2 className="title">{this.state.currentGameData.title}</h2>
                             <h3 className="level">Szintek: {levels}</h3>
                         </div>
                         <div className="game__info__description">{paragraphs}</div>
-                        <img src={this.state.currentGameData.mainImage} width="auto" height="auto"/>
+                        <img className="game__info__img" src={this.state.currentGameData.mainImage} width="auto" height="auto"/>
                         <p className="game__info__question">{this.state.currentGameData.question}</p>
                     </div>
                     <div className="game__board">
