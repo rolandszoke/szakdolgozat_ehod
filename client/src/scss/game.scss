@@ -13,7 +13,7 @@
   transform: translate(-50%, 0%);
   border-radius: 2vh;
   text-align: center;
-  font: 700 16px 'Syncopate', sans-serif;
+  font: 700 100% 'syncopatebold', sans-serif;
   color: $white;
   @include text-shadow-3d-small;
   perspective: 1000px;
@@ -94,6 +94,41 @@
       }
     }
 
+    &.back--start { //kezdő, üdvözlő felület
+      background: linear-gradient(to bottom right, $green, $turquoise);
+      animation: none;
+      cursor: default;
+      .back__content {
+        width: 80%;
+        .startUI {
+          &__welcome {
+            margin-bottom: 40px;
+            font-size: 35px;
+            text-transform: uppercase;
+            @include text-shadow-3d-small;
+            line-height: 50px;
+          }
+          &__info {
+            margin: 10px 0;
+            font-family: 'robotoregular', Arial, sans-serif;
+            font-size: 18px;
+            line-height: 1.2;
+            text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+          }
+          &__start {
+            @include button($green);
+            display: block;
+            position: relative;
+            margin: 50px auto 0;
+            padding-top: 15px;
+            width: 180px;
+            height: 40px;
+            font-size: 25px;
+          }
+        }
+      }
+    }
+
     &.back--test { //tesztnél
       background: linear-gradient(to bottom right, #8e44ad, #cf66ff);
       animation: purpleNeon 1.5s ease-in-out infinite alternate;
@@ -170,7 +205,7 @@
       margin: 0 30px;
       padding: 9px;
       text-align: left;
-      font-family: 'Roboto', Arial, sans-serif;
+      font-family: 'robotoregular', Arial, sans-serif;
       font-weight: 400;
       font-size: 18px;
       line-height: 1.2;
@@ -207,7 +242,7 @@
     &__question {
       text-align: center;
       margin: 10px 75px;
-      font-family: 'Roboto', Arial, sans-serif;
+      font-family: 'robotoregular', Arial, sans-serif;
       font-size: 19px;
       text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
     }

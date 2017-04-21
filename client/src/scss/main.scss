@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Syncopate:700');
+@import '../fonts/fontkit/stylesheet.css';
 @import 'mixin.scss';
 @import 'colors.scss';
 @import 'button.scss';
@@ -13,10 +13,11 @@
 }
 
 body {
-  background: linear-gradient(135deg, #044f48, #2a7561);
+  background: darken($turquoise,12%);
   background-size: cover;
   overflow-x: hidden;
   margin: 0;
+  font-size: 16px;
 }
 
 .app {
@@ -25,7 +26,7 @@ body {
     position: relative;
     z-index: 2;
     margin: 5px 0 15px;
-    font: 700 80px 'Syncopate', sans-serif;
+    font: 700 80px 'syncopatebold', sans-serif;
     color: $white;
     text-align: center;
     text-transform: uppercase;

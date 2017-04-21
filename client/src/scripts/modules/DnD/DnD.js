@@ -1,4 +1,4 @@
-import React, {Component, PropTypes} from 'react';
+import React, { Component } from 'react';
 import DnDSquare from './DnDSquare.js';
 import Element from './Element.js';
 import {DragDropContext} from 'react-dnd';

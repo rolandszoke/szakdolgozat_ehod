@@ -30,7 +30,7 @@ class CreateTest extends Component {
         //kód elkészítése
         let code = "";
         this.state.checked.forEach(function (e) {
-            code += e + ";";
+            code += e + ".";
         });
         this.setState({code: code});
     }

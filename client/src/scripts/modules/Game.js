@@ -18,6 +18,7 @@ class Game extends Component {
             timer: setTimeout(function () { //időzítő a time játékmódhoz
             }, 900000),
             testCode: "", //teszt kódja
+            start: true, //első indítás
         };
 
     }
@@ -33,29 +34,39 @@ class Game extends Component {
     }
 
     setUp(props) {
-        //válaszút játékmódok között
-        if (props.gameMode[0] === "Időre") {
-            this.setState({front: "front--time", correctAnswers: 0});
-            this.counter(); //időzítő beállítása
-            this.getGames(props.gameMode, props.modifiers); //játékok beállítása
-        } else if (props.gameMode[0] === "Teszt") {
-            let content = this.renderTestInput(); //kód bemeneti felület biztosítása
+        if (this.state.start) {
+            //első indítás
+            let content = this.renderStartPage(); //üdvözlő felület
             this.setState({
-                flip: "game--flip", back: "back--test", front: "front--test",
-                backContent: content, gameMode: "Test", correctAnswers: 0
+                back: "back--start", front: " ", backContent: content, correctAnswers: 0,
             });
             clearTimeout(this.state.timer); //időzítő nullázása
+            this.getGames(props.gameMode, props.modifiers);
         } else {
-            this.setState({front: " "});
-            clearTimeout(this.state.timer); //időzítő nullázása
-            this.getGames(props.gameMode, props.modifiers); //játékok beállítása
+            //válaszút játékmódok között
+            if (props.gameMode[0] === "Időre") {
+                this.setState({front: "front--time", correctAnswers: 0});
+                this.counter(); //időzítő beállítása
+                this.getGames(props.gameMode, props.modifiers); //játékok beállítása
+            } else if (props.gameMode[0] === "Teszt") {
+                let content = this.renderTestInput(); //kód bemeneti felület biztosítása
+                this.setState({
+                    flip: "game--flip", back: "back--test", front: "front--test",
+                    backContent: content, gameMode: "Test", correctAnswers: 0
+                });
+                clearTimeout(this.state.timer); //időzítő nullázása
+            } else if (props.gameMode[0] === "Felfedező") {
+                this.setState({front: " "});
+                clearTimeout(this.state.timer); //időzítő nullázása
+                this.getGames(props.gameMode, props.modifiers); //játékok beállítása
+            }
         }
     }
 
     getGames(gm, mod) {
         //kiválasztható játékok beállítása, adott szűrési paraméterekkel
         let games = [];
-        let testGamesArray = this.state.testCode.split(';'); //teszt feladatainak idjei
+        let testGamesArray = this.state.testCode.split('.'); //teszt feladatainak idjei
         this.state.allGames.games.forEach(function (element) {
             let g = (require("../../json/" + element)); //játékfájl betöltése
             if (gm[0] === "Teszt") {
@@ -106,9 +117,10 @@ class Game extends Component {
             //új játék kérése
             let game = games[Math.floor(Math.random() * games.length)]; //random kiválasztunk egy játékot
             games.splice(games.indexOf(game), 1); //kivesszük őt a kiválaszthatók közül
+            let flip = this.state.start ? "game--flip" : "game--noflip";
             this.setState({
-                flip: "game--noflip", currentGameData: game, gameMode: gm,
-                modifiers: mod, selectableGames: games
+                flip: flip, currentGameData: game, gameMode: gm,
+                modifiers: mod, selectableGames: games, start: false
             });
         }
     }
@@ -124,7 +136,7 @@ class Game extends Component {
                     backContent: "Lejárt az időd! Helyes válaszaid száma: " + _this.state.correctAnswers,
                     flip: "game--flip"
                 });
-            }, 60000) //időzítő hossza: 60000 = 1 perc
+            }, 1800000) //időzítő hossza: 60000 = 1 perc
         })
     }
 
@@ -166,6 +178,20 @@ class Game extends Component {
         this.setState({testCode: event.target.value});
     }
 
+    renderStartPage() {
+        //kezdő felület
+        return (
+            <div className="startUI">
+                <p className="startUI__welcome">Üdvözöllek az e-Hód interaktív alkalmazásában!</p>
+                <p className="startUI__info">*A beállításokat a bal és jobb oldali nyitható menükben találod meg.</p>
+                <p className="startUI__info">További információkat a E-HOD cím feletti szürke gombra kattintva olvashatsz!</p>
+                <div className="startUI__start"
+                     onClick={() => this.setState({flip: "game--noflip"})}>Indítás
+                </div>
+            </div>
+        )
+    }
+
     renderTestInput() {
         //teszt bemeneti felülete
         return (
@@ -190,8 +216,8 @@ class Game extends Component {
             paragraphs.push(<p key={index}>{element}</p>);
         });
 
-        //amennyiben nem felfedezőbe játszunk kattintásra nem kapunk új játékot
-        let backClickEvent = this.state.gameMode[0] === "Felfedező" ?
+        //amennyiben nem felfedezőbe játszunk kattintásra nem kapunk új játékot, hasonlóan a kezdő üdvözlésnél
+        let backClickEvent = (this.state.gameMode[0] === "Felfedező" && this.state.back !=="back--start") ?
             () => this.newGame(this.state.selectableGames, this.state.gameMode, this.state.modifiers)
             : () => "";
 
@@ -204,7 +230,8 @@ class Game extends Component {
                             <h3 className="level">Szintek: {levels}</h3>
                         </div>
                         <div className="game__info__description">{paragraphs}</div>
-                        <img className="game__info__img" src={this.state.currentGameData.mainImage} width="auto" height="auto"/>
+                        <img className="game__info__img" src={this.state.currentGameData.mainImage} width="auto"
+                             height="auto"/>
                         <p className="game__info__question">{this.state.currentGameData.question}</p>
                     </div>
                     <div className="game__board">

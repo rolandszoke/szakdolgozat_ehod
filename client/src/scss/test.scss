@@ -73,7 +73,7 @@
         transform: translate(-50%, -50%);
         width: 100%;
 
-        font: 700 19px 'Syncopate', sans-serif;
+        font: 700 19px 'syncopatebold', sans-serif;
         color: $white;
         text-align: center;
         text-transform: uppercase;
@@ -142,7 +142,7 @@
             color: $white;
             padding: 5px 5px 5px 30px;
             text-align: left;
-            font-family: 'Roboto', Arial, sans-serif;
+            font-family: 'robotoregular', Arial, sans-serif;
             font-weight: 600;
             font-size: 20px;
             text-transform: uppercase;
@@ -168,7 +168,7 @@
           color: $white;
           padding: 6px 5px 6px 35px;
           text-align: left;
-          font-family: 'Roboto', Arial, sans-serif;
+          font-family: 'robotoregular', Arial, sans-serif;
           font-weight: 400;
           font-size: 16px;
           line-height: 1.2;
@@ -265,14 +265,14 @@
       background: $red;
       border-radius: 0 10px 0 80%;
       color: $white;
-      font: 700 15px 'Syncopate', sans-serif;
+      font: 700 15px 'syncopatebold', sans-serif;
       text-align: center;
       text-transform: uppercase;
       cursor: pointer;
       transition: all 300ms;
 
       &:hover {
-        font: 700 20px 'Syncopate', sans-serif;
+        font: 700 20px 'syncopatebold', sans-serif;
         padding: 8px 6px 8px 8px;
       }
     }
@@ -285,7 +285,7 @@
 
       background: $white;
       border-radius: 3px;
-      font: 700 19px 'Syncopate', sans-serif;
+      font: 700 19px 'syncopatebold', sans-serif;
       color: $purple;
       text-align: center;
       text-transform: uppercase;

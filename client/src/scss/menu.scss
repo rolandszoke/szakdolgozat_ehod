@@ -33,7 +33,7 @@ $menu-items: 9;
 
 .nav {
   display: inline-block;
-  @media (min-width: 1050px) {
+  @media (min-width: 1090px) {
     display: inline-block;
     position: relative;
     left: 50%;
@@ -48,9 +48,9 @@ $menu-items: 9;
     transform: translate(-50%, 0%);
     z-index: 5;
     color: white;
-    font-family: 'Roboto', Arial, sans-serif;
+    font-family: 'robotoregular', Arial, sans-serif;
 
-    @media (max-width: 1050px) {
+    @media (max-width: 1090px) {
       left: 50%;
       z-index: 99;
     }
@@ -163,10 +163,10 @@ $menu-items: 9;
   &--left {
     padding-left: 80px;
     left: 0;
-    @media (min-width: 1050px) {
-      left: -540px;
+    @media (min-width: 1090px) {
+      left: -560px;
     }
-    @media (max-width: 1050px) {
+    @media (max-width: 1090px) {
       .menu__open:checked ~ .menu__bg {
         height: 860px;
         width: 90px;
@@ -185,10 +185,10 @@ $menu-items: 9;
   &--right {
     padding-right: 80px;
     right: 0;
-    @media (min-width: 1050px) {
-      right: -540px;
+    @media (min-width: 1090px) {
+      right: -560px;
     }
-    @media (max-width: 1050px) {
+    @media (max-width: 1090px) {
       .menu__open:checked ~ .menu__bg {
         height: 340px;
         width: 90px;
@@ -211,7 +211,7 @@ $menu-items: 9;
 }
 
 .menu__bg {
-  @media (max-width: 1050px) {
+  @media (max-width: 1090px) {
     position: absolute;
     z-index: 5;
     left: 20px;
@@ -297,7 +297,7 @@ $menu-items: 9;
   }
 
   input[type=checkbox] {
-    @include sideButton($turquoise)
+    @include sideButton($orange)
   }
 
   input[type=radio] {
@@ -329,7 +329,7 @@ $menu-items: 9;
         }
       }
     }
-    @include timer('input[type=radio]', 60, 75px, $blue, "none");
+    @include timer('input[type=radio]', 1800, 75px, $blue, "none");
   }
 
   &--Teszt {
