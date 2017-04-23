@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Board from './Board.js';
+//import read from 'fs-readdir-recursive';
 
 class Game extends Component {
     constructor(props) {
@@ -24,6 +25,7 @@ class Game extends Component {
     }
 
     componentWillMount() {
+
         //első indítás
         this.setUp(this.state);
     }
@@ -136,7 +138,8 @@ class Game extends Component {
                     backContent: "Lejárt az időd! Helyes válaszaid száma: " + _this.state.correctAnswers,
                     flip: "game--flip"
                 });
-            }, 1800000) //időzítő hossza: 60000 = 1 perc
+            }, 1200000) //időzítő hossza: 60000 = 1 perc; 1200000= 20 perc
+            //az itt átállított időt a menu.scss-ben is át kell állítani a @include timer() funkció 2. paraméterénél
         })
     }
 

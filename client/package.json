@@ -16,6 +16,7 @@
     "babel-preset-es2017": "^6.22.0",
     "babel-preset-react": "^6.23.0",
     "css-loader": "^0.27.3",
+    "file-loader": "^0.11.1",
     "node-sass": "^4.5.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
@@ -38,12 +39,17 @@
   },
   "homepage": "https://github.com/G-CorpDev/project#readme",
   "dependencies": {
+    "fs-readdir-recursive": "^1.0.0",
+    "glob": "^7.1.1",
     "prop-types": "^15.5.8",
     "react": "^15.5.4",
     "react-copy-to-clipboard": "^4.3.0",
     "react-dnd": "^2.3.0",
     "react-dnd-html5-backend": "^2.3.0",
+    "react-dnd-touch-backend": "^0.3.8",
     "react-tools": "^0.13.3",
-    "url-loader": "^0.5.8"
+    "recursive-readdir": "^2.1.1",
+    "url-loader": "^0.5.8",
+    "webpack-node-externals": "^1.5.4"
   }
 }

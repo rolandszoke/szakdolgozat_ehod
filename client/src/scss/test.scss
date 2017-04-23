@@ -15,6 +15,14 @@
     @media (max-width: 1010px) {
       left: 0;
     }
+    @media (max-width: 630px) {
+      left: 50%;
+
+      .createTest__button {
+        top: 60px;
+        left: -50px;
+      }
+    }
   }
 
   //megnyitó gomb
@@ -73,7 +81,7 @@
         transform: translate(-50%, -50%);
         width: 100%;
 
-        font: 700 19px 'syncopatebold', sans-serif;
+        font: 700 120% 'syncopatebold', sans-serif;
         color: $white;
         text-align: center;
         text-transform: uppercase;
@@ -144,7 +152,7 @@
             text-align: left;
             font-family: 'robotoregular', Arial, sans-serif;
             font-weight: 600;
-            font-size: 20px;
+            font-size: 120%;
             text-transform: uppercase;
             text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
             &:last-child {
@@ -170,7 +178,7 @@
           text-align: left;
           font-family: 'robotoregular', Arial, sans-serif;
           font-weight: 400;
-          font-size: 16px;
+          font-size: 100%;
           line-height: 1.2;
           text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
           cursor: pointer;
@@ -265,14 +273,14 @@
       background: $red;
       border-radius: 0 10px 0 80%;
       color: $white;
-      font: 700 15px 'syncopatebold', sans-serif;
+      font: 700 100% 'syncopatebold', sans-serif;
       text-align: center;
       text-transform: uppercase;
       cursor: pointer;
       transition: all 300ms;
 
       &:hover {
-        font: 700 20px 'syncopatebold', sans-serif;
+        font: 700 120% 'syncopatebold', sans-serif;
         padding: 8px 6px 8px 8px;
       }
     }
@@ -285,7 +293,7 @@
 
       background: $white;
       border-radius: 3px;
-      font: 700 19px 'syncopatebold', sans-serif;
+      font: 700 120% 'syncopatebold', sans-serif;
       color: $purple;
       text-align: center;
       text-transform: uppercase;

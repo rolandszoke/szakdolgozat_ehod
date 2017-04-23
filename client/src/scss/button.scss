@@ -27,6 +27,11 @@
   transition: all 150ms ease-in-out;
   animation: none;
 
+  @media (max-width: 500px) {
+    height: 70px;
+    width: 70px;
+  }
+
   &.send {
     display: block;
     position: absolute;

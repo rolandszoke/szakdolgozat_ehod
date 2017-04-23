@@ -26,12 +26,20 @@ body {
     position: relative;
     z-index: 2;
     margin: 5px 0 15px;
-    font: 700 80px 'syncopatebold', sans-serif;
+    font: 700 500% 'syncopatebold', sans-serif;
     color: $white;
     text-align: center;
     text-transform: uppercase;
     user-select: none;
     @include text-shadow-3d-big;
+    @media (max-width: 780px) {
+      font-size: 300%;
+      height: 85px;
+    }
+    @media (max-width: 450px) {
+      top: 10px;
+      font-size: 200%;
+    }
   }
   //háttérkép
   &__bg {
@@ -41,5 +49,8 @@ body {
     top: 0;
     left: 0;
     z-index: 1;
+    @media (max-device-width: 810px) {
+      display: none;
+    }
   }
 }
