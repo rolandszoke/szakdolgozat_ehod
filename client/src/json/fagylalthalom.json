@@ -1,6 +1,6 @@
 {
   "type": "button",
-  "multiple": "yes",
+  "multiple": true,
   "title": "Fagylalthalom",
   "level": ["Kishód - Könnyű"],
   "description": ["A LIFO Fagylaltozóban a kívánt fagylaltgombócokat egy tölcsérre halmozzák.","Pontosan abban a sorrendben, melyben a vendég kéri."],

@@ -26,7 +26,7 @@ class Board extends Component {
             );
         } else if (this.state.data.type === "dnd") { //drag and drop
             return (
-                <DnD vertical={this.state.data.vertical} answerImages={this.state.data.answerImages}
+                <DnD vertical={this.state.data.vertical} dragImages={this.state.data.dragImages}
                      dropImages={this.state.data.dropImages}
                      onClick={(i) => this.state.onClick(i)}/>
             );

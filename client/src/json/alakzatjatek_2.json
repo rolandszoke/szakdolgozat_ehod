@@ -1,6 +1,6 @@
 {
   "type": "button",
-  "multiple": "yes",
+  "multiple": true,
   "title": "Alakzatjáték 2",
   "level": ["Senior - Közepes"],
   "description": ["Aliz geometriai alakzatokkal játszik. Egy-egy alakzatsort átvált alakzatok egy másik sorára.","Aliz minden játékkörben saját átváltási szabályokat rögzít. Minden átváltáskor a szabályt olyan sokszor alkalmazza, ahányszor csak lehetséges. Minden játékkört egy alakzattal kezd."],

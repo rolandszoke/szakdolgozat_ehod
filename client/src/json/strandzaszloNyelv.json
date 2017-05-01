@@ -5,9 +5,9 @@
   "description": ["Albert vízi mentő egy strandon. Gyermekei, Beatrix és Richárd tőle távol játszanak.","A tenger zúg, a szél fúj, így a kiabálás nem hallatszik és nincs térerő a mobiltelefonokhoz. Hogy mégis tudjon a gyermekeinek szólni, Albert 3 állású zászlórudat és különféle zászlókat alkalmaz."],
   "question": "Hogy nézne ki a következő mondat: \"Richárd, étel érkezett, siess!\"",
   "mainImage": "src/img/strandzaszloNyelv/main.png",
-  "answerImages": ["src/img/strandzaszloNyelv/drag/1.png","src/img/strandzaszloNyelv/drag/2.png","src/img/strandzaszloNyelv/drag/3.png","src/img/strandzaszloNyelv/drag/4.png","src/img/strandzaszloNyelv/drag/5.png","src/img/strandzaszloNyelv/drag/6.png","src/img/strandzaszloNyelv/drag/7.png"],
+  "dragImages": ["src/img/strandzaszloNyelv/drag/1.png","src/img/strandzaszloNyelv/drag/2.png","src/img/strandzaszloNyelv/drag/3.png","src/img/strandzaszloNyelv/drag/4.png","src/img/strandzaszloNyelv/drag/5.png","src/img/strandzaszloNyelv/drag/6.png","src/img/strandzaszloNyelv/drag/7.png"],
   "dropImages": ["src/img/strandzaszloNyelv/drop/1.png","src/img/strandzaszloNyelv/drop/2.png","src/img/strandzaszloNyelv/drop/3.png"],
   "answer":[0,3,6],
-  "vertical":"yes",
+  "vertical": true,
   "id": 16
 }

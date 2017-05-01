@@ -32,7 +32,7 @@ class DnDSquare extends Component {
             target=" source";
         }
         let vertical;
-        if(this.props.vertical==="yes") {
+        if(this.props.vertical=== true) {
             vertical=" vertical";
         } else {
             vertical=" ";
@@ -55,7 +55,7 @@ DnDSquare.propTypes = {
     isOver: PropTypes.bool.isRequired,
     connectDropTarget: PropTypes.func.isRequired,
     rowNum: PropTypes.number.isRequired,
-    vertical: PropTypes.string.isRequired,
+    vertical: PropTypes.bool.isRequired,
 };
 
 export default DropTarget(ItemTypes.ELEMENT, squareTarget, collect)(DnDSquare);

@@ -1,6 +1,6 @@
 {
   "type": "button",
-  "multiple": "no",
+  "multiple": false,
   "title": "Öntözés",
   "level": ["Benjamin - Könnyű", "Kishód - Közepes"],
   "description": ["Amikor a szelep zárva van, a víz nem tud átfolyni.","Amikor a szelep nyitva van, a víz átfolyik."],

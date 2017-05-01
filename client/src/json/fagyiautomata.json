@@ -5,9 +5,9 @@
   "description": ["Egy különleges fagyiautomata négygombócos adagokat ad, méghozzá nem véletlenszerűen. A képen jobbról balra látható a legutóbbi 3 tölcsér, amit a gép készített."],
   "question": "Melyik tölcsér lesz a következő?",
   "mainImage": "src/img/fagyiautomata/main.png",
-  "answerImages": ["src/img/fagyiautomata/drag/1.png","src/img/fagyiautomata/drag/2.png","src/img/fagyiautomata/drag/3.png","src/img/fagyiautomata/drag/4.png"],
+  "dragImages": ["src/img/fagyiautomata/drag/1.png","src/img/fagyiautomata/drag/2.png","src/img/fagyiautomata/drag/3.png","src/img/fagyiautomata/drag/4.png"],
   "dropImages": [" "," "," "," ","src/img/fagyiautomata/drop/1.png"],
   "answer":[3,0,1,2,-1],
-  "vertical":"yes",
+  "vertical": true,
   "id": 6
 }

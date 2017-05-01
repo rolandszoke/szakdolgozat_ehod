@@ -14,6 +14,7 @@
   position: relative;
   display: inline-block;
   flex: 1;
+  transition: transform 150ms ease-in-out;
   label {
     position: relative;
     display: inline-block;
@@ -31,6 +32,11 @@
       box-shadow: 0 0 10px 0 $red inset, 0 0 50px 5px $red;
     }
   }
+
+  &:hover {
+    transform: scale(1.2);
+  }
+
   &:hover > .unchecked {
     box-shadow: 0 0 10px 0 $blue inset, 0 0 50px 5px $blue;
   }

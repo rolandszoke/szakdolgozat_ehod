@@ -1,6 +1,6 @@
 {
   "type": "button",
-  "multiple": "no",
+  "multiple": false,
   "title": "Vegetariánus Hajtóvadászat",
   "level": ["Kishód - Nehéz","Benjamin - Közepes"],
   "description": ["A hódok kerti party-ra készülnek, melyre egy salátát is szeretnének elkészíteni. Sajnos a szakács szabadságon van. Kati tudja milyen fontos, hogy az összetevőket a megfelelő sorrendben keverjék össze.","A kertben észreveszi, hogy a szakács segített neki: minden összetevőhöz egy útmutatót tett, mely a következő összetevőhöz vezet."],

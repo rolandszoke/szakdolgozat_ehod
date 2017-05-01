@@ -21,7 +21,7 @@ class Element extends Component {
     render() {
         const { connectDragSource, isDragging } = this.props;
         let vertical;
-        if(this.props.vertical==="yes") {
+        if(this.props.vertical=== true) {
             vertical=" vertical";
         } else {
             vertical=" ";
@@ -40,7 +40,7 @@ class Element extends Component {
 Element.propTypes = {
     connectDragSource: PropTypes.func.isRequired,
     isDragging: PropTypes.bool.isRequired,
-    vertical: PropTypes.string.isRequired
+    vertical: PropTypes.bool.isRequired
 };
 
 export default DragSource(ItemTypes.ELEMENT, elementSource, collect)(Element);

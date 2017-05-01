@@ -1,6 +1,6 @@
 {
 	"type": "button",
-	"multiple": "no",
+	"multiple": false,
 	"title": "Népszerűség",
 	"level": ["Junior - Nehéz", "Senior - Közepes"],
 	"description": ["Hét hód regisztrált egy online hálózatra. A kép azt mutatja, a hálózaton belül mely hódok “barátok”: a barátok egy vonallal vannak összekötve. A nyári szünet után minden hód megosztott egy fotót a barátaival a hálózaton. Így a barátaik oldalán is megjelent a fénykép. Minden hód a saját oldalán és a barátai oldalán lévő fotókat látja."],

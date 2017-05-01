@@ -1,6 +1,6 @@
 {
   "type": "button",
-  "multiple": "no",
+  "multiple": false,
   "title": "Tükörtojás",
   "level": ["Benjamin - Könnyű"],
   "description": ["A hódok fekete-fehér képeket festenek. Legjobban a tükörtojás képe tetszik nekik. Elmentik a számítógép egy képállományába: egy 11-szer 11-es négyzetrács segítségével.","Amikor később megnyitják a képállományt, nagy meglepetés éri őket: a szép íves vonalak többé nem látszanak! Ehelyett a négyzetrács minden olyan négyzete, amelyben vonal futott, teljesen fekete."],

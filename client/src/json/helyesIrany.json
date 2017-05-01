@@ -1,6 +1,6 @@
 {
 	"type": "button",
-	"multiple": "no",
+	"multiple": false,
 	"title": "Helyes irány",
 	"level": ["Benjamin - Közepes", "Kadét - Könnyű"],
 	"description": ["Anna és Bob két dobozt keresnek, melyeket számukra rejtettek el. Ehhez két navigációs eszközt használnak. Az egyik eszköz az 1. számú dobozhoz mutatja az irányt, a másik a 2. számú dobozhoz.","Sajnos nem tudjuk, melyik készülék, melyik dobozhoz mutatja az irányt. A bal oldali képen azt láthatod, milyen irányt mutatnak a készülékek. A térkép (jobbra) hat helyet mutat, ezek közül kettőn vannak a dobozok elrejtve."],

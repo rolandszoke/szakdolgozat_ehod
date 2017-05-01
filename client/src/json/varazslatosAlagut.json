@@ -5,10 +5,10 @@
   "description": ["A hódvasút kétféle alagutat használ.","Ha a szerelvény egy fekete alagúton megy keresztül, az utasok fordított sorrendben jönnek ki a túloldalon.","Ha a szerelvény egy fehér alagúton megy keresztül, az első és a hátsó utas helyet cserél.","A mi szerelvényünk három alagúton megy keresztül:"],
   "question": "Milyen sorrendben jönnek ki az utasok az utolsó alagútból?",
   "mainImage": "src/img/varazslatosAlagut/main.png",
-  "answerImages": ["src/img/varazslatosAlagut/drag/1.png","src/img/varazslatosAlagut/drag/2.png","src/img/varazslatosAlagut/drag/3.png","src/img/varazslatosAlagut/drag/4.png"],
+  "dragImages": ["src/img/varazslatosAlagut/drag/1.png","src/img/varazslatosAlagut/drag/2.png","src/img/varazslatosAlagut/drag/3.png","src/img/varazslatosAlagut/drag/4.png"],
   "dropImages": ["src/img/varazslatosAlagut/drop/1.png","src/img/varazslatosAlagut/drop/2.png","src/img/varazslatosAlagut/drop/3.png","src/img/varazslatosAlagut/drop/4.png"],
   "watching":"element",
   "answer":[3,1,2,0],
-  "vertical":"no",
+  "vertical": false,
   "id": 23
 }

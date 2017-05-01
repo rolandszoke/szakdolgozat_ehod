@@ -5,9 +5,9 @@
   "description": ["Hód Henrik gyurmagolyókból és gyufaszálakból gyurmaállatkákat készített: egy tengeri csillagot, egy kutyát, egy rozmárt és egy zsiráfot.","De Henrik kistestvére játszott a gyurmaállatkákkal. Így minden állat egy kicsit más formát kapott. Az egyes gyufaszálak azonban még mind ugyanazokba a gyurmagolyókba vannak beszúrva, mint korábban."],
   "question": "Vajon melyik állat melyik?",
   "mainImage": "",
-  "answerImages": ["src/img/gyurmaallatok/drag/1.png","src/img/gyurmaallatok/drag/2.png","src/img/gyurmaallatok/drag/3.png"],
+  "dragImages": ["src/img/gyurmaallatok/drag/1.png","src/img/gyurmaallatok/drag/2.png","src/img/gyurmaallatok/drag/3.png"],
   "dropImages": ["src/img/gyurmaallatok/drop/1.png","src/img/gyurmaallatok/drop/2.png","src/img/gyurmaallatok/drop/4.png"],
   "answer":[1,2,0],
-  "vertical":"no",
+  "vertical": false,
   "id": 10
 }

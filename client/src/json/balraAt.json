@@ -1,6 +1,6 @@
 {
   "type": "button",
-  "multiple": "yes",
+  "multiple": true,
   "title": "Helyes irány",
   "level": ["Kishód - Könnyű"],
   "description": ["Van egy játékrobotod két gombbal. Ez történik, ha megnyomod a gombokat:"],

@@ -11,14 +11,14 @@ import Button from '../Button/Button.js';
 class DnD extends Component {
     constructor(props) {
         super(props);
-        let l = props.answerImages.length; //mozgatható elemek száma
-        let n = props.dropImages.length + props.answerImages.length; //mozgatható elemek száma és a megoldási mezők száma
+        let l = props.dragImages.length; //mozgatható elemek száma
+        let n = props.dropImages.length + props.dragImages.length; //mozgatható elemek száma és a megoldási mezők száma
         let pos = [];
         for (let i = l; i > 0; i--) {
             pos.push(n - i);
         }
         this.state = {
-            answerImages: props.answerImages, //mozgatható elemek, képeik
+            dragImages: props.dragImages, //mozgatható elemek, képeik
             dropImages: props.dropImages, //üres mezők, melyekbe a választ adjuk meg, képeik
             onClick: props.onClick, //megoldás elküldésének metódusa
             positions: pos, //mozgatható elemek pozíciója (hányadik indexü mezőban szerepelnek sorba az elemek)
@@ -32,14 +32,14 @@ class DnD extends Component {
 
     componentWillReceiveProps(nextProps) {
         //új játéknál adatok frissítése
-        let l = nextProps.answerImages.length;
-        let n = nextProps.dropImages.length + nextProps.answerImages.length;
+        let l = nextProps.dragImages.length;
+        let n = nextProps.dropImages.length + nextProps.dragImages.length;
         let pos = [];
         for (let i = l; i > 0; i--) {
             pos.push(n - i);
         }
         this.setState({
-            answerImages: nextProps.answerImages,
+            dragImages: nextProps.dragImages,
             dropImages: nextProps.dropImages,
             onClick: nextProps.onClick,
             positions: pos,
@@ -67,8 +67,8 @@ class DnD extends Component {
 
     resetBoxes() {
         //újraindítás gomb metódusa
-        let l = this.state.answerImages.length;
-        let n = this.state.dropImages.length + this.state.answerImages.length;
+        let l = this.state.dragImages.length;
+        let n = this.state.dropImages.length + this.state.dragImages.length;
         let pos = [];
         for (let i = l; i > 0; i--) {
             pos.push(n - i);
@@ -88,7 +88,7 @@ class DnD extends Component {
                            rowNum={rowNum}
                            vertical={this.state.vertical}>
                     <Element key={k} id={this.state.positions.indexOf(k)}
-                             picture={this.state.answerImages[this.state.positions.indexOf(k)]}
+                             picture={this.state.dragImages[this.state.positions.indexOf(k)]}
                              vertical={this.state.vertical}/>
                 </DnDSquare >
             );
@@ -112,11 +112,11 @@ class DnD extends Component {
         let targets = []; //megoldási mezők
         let sources = []; //kiindulási mezők
         let targetNumber = this.state.dropImages.length; //megoldási mezők száma
-        let elementNumber = this.state.answerImages.length; //mozgatható elemek száma
+        let elementNumber = this.state.dragImages.length; //mozgatható elemek száma
         let rowNum = Math.max(targetNumber, elementNumber); //egy sorban hány mezőt helyezzünk el, ha horizontális a megoldási mező
         let squareNumber = targetNumber + elementNumber; //összes mező száma
 
-        if (this.state.vertical === "yes") {
+        if (this.state.vertical === true) {
             //vertikális megoldási mezők
             for (let i = 0; i < squareNumber; i++) {
                 if (i < targetNumber) {

@@ -5,9 +5,9 @@
   "description": ["Egy egér áll fent, öt hosszú cső előtt. A hosszú csöveket rövidebb csövek kötik össze. Az egér szeretne eljutni a sajthoz, ami az egyik hosszú cső végén van, egészen jobbra lent.","A csövekben az egér mindig a következő szabályokat követi felváltva:","1. Addig fut lefele a hosszú csőben, amíg egy rövidebb cső nem keresztezi azt.","2. Ekkor átfut a rövidebb csövön (egy másik hosszú csőbe). "],
   "question": "Melyik hosszú csőben induljon el, hogy eljusson a sajthoz?",
   "mainImage": "src/img/csofutam/main.png",
-  "answerImages": ["src/img/csofutam/drag/1.png"],
+  "dragImages": ["src/img/csofutam/drag/1.png"],
   "dropImages": ["src/img/csofutam/drop/1.png","src/img/csofutam/drop/2.png","src/img/csofutam/drop/3.png","src/img/csofutam/drop/4.png","src/img/csofutam/drop/5.png"],
   "answer":[-1,-1,0,-1,-1],
-  "vertical":"no",
+  "vertical": false,
   "id": 5
 }

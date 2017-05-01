@@ -41,7 +41,7 @@ class Buttons extends Component {
 
     renderButton(i) {
         //egy gomb elkészítése
-        if (this.state.multiple === "yes") { //többszörös gomb lenyomás
+        if (this.state.multiple === true) { //többszörös gomb lenyomás
             return <Button key={i} value={this.state.answerImages[i]} classes="btn--multiple"
                            onClick={() => this.multipleClick(i)}/>;
         } else { //egyszeres gomb lenyomás
@@ -61,10 +61,10 @@ class Buttons extends Component {
         });
         //lenyomott gombok megjelenítése
         this.state.multiplePressed.forEach(function (element, index) {
-            pressed.push(<img key={index} src={_this.state.answerImages[element]} width="20px" height="20px"/>)
+            pressed.push(<img key={index} src={_this.state.answerImages[element]} width="24px" height="24px"/>)
         });
         //küldés és nullázás gomb elkészítése
-        if (this.state.multiple === "yes") {
+        if (this.state.multiple === true) {
             buttons2.push(<Button key="send" value="none" classes="send"
                                   onClick={() => this.state.onClick(this.state.multiplePressed)}/>,
                 <Button key="reset" value="none" classes="reset"
@@ -77,7 +77,7 @@ class Buttons extends Component {
                     {buttons1}
                 </div>
                 {buttons2}
-                {this.state.multiple === "yes" ? <p className="info">Megnyomva: {pressed}</p> : ""}
+                {this.state.multiple === true ? <p className="info">Megnyomva: {pressed}</p> : ""}
             </div>
         )
 

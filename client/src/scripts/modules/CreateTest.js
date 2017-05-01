@@ -6,7 +6,7 @@ class CreateTest extends Component {
         super(props);
         this.state = {
             open: false, //true: ablak nyitva van, false: zárva
-            allGames: require("json-loader!../../json/games.json"), //a kiválasztható játékok listája az adott szűrést alkalmazva
+            allGames: require("../../json/games.json"), //a kiválasztható játékok listája az adott szűrést alkalmazva
             openCreateTest: props.openCreateTest, //paraméterbe megadott metódus a megnyitásra/bezárásra
             checked: [], //kijelölt feladatok id-jének listája
             code: "", //elkészített kód a kijelölt játékok listájából

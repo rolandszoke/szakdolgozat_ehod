@@ -1,12 +1,11 @@
 import React, {Component} from 'react';
 import Board from './Board.js';
-//import read from 'fs-readdir-recursive';
 
 class Game extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            allGames: require("json-loader!../../json/games.json"), //összes játékfájl neve jsonbe rendezve
+            allGames: require("../../json/games.json"), //összes játékfájl neve jsonbe rendezve
             selectableGames: [], //a kiválasztható játékok listája az adott szűrést alkalmazva
             gameMode: props.gameMode, //kiválasztott játékmód
             modifiers: props.modifiers, //kiválasztott nehézségi szintek
