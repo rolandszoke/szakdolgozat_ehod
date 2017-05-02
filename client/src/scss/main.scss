@@ -1,12 +1,12 @@
 @import '../fonts/fontkit/stylesheet.css';
 @import 'mixin.scss';
 @import 'colors.scss';
-@import 'button.scss';
 @import 'game.scss';
-@import 'dropBox.scss';
-@import 'checkbox.scss';
 @import 'menu.scss';
 @import 'test.scss';
+@import 'uiButton';
+@import 'uiDropBox';
+@import 'uiCheckbox';
 
 ::-webkit-scrollbar {
   display: none;

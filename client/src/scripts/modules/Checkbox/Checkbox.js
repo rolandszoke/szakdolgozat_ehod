@@ -26,16 +26,16 @@ class Checkbox extends Component {
         let classes; //css class-ai
         if (this.state.checked) { //ki van jelölve
             backg = this.state.check;
-            classes = "checked";
+            classes = "checkbox__box--checked";
         } else { //nincs kijelölve
             backg = this.state.uncheck;
-            classes = "unchecked";
+            classes = "checkbox__box--unchecked";
         }
         let flexBasis = 100 / this.props.rowNum; //mennyi helyet foglal el a checkbox a sorba
         return (
             <div className="checkbox" style={{flexBasis: flexBasis + "%"}}>
                 <input type="checkbox" onClick={() => this.state.checkClick()}/>
-                <label className={classes} style={{background: 'url(' + backg + ') no-repeat center center'}}>
+                <label className={"checkbox__box " + classes} style={{background: 'url(' + backg + ') no-repeat center center'}}>
                 </label>
             </div>
         );

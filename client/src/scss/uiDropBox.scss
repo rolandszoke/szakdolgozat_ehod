@@ -23,21 +23,21 @@
   box-shadow: 0 0 20px 0 $blue inset, 0 0 0 0 $blue;
   transition: box-shadow 150ms ease-in-out;
 
-  &.source {
+  &--source {
     &:hover {
       box-shadow: 0 0 10px 0 $blue inset, 0 0 50px 5px $blue;
     }
   }
 
-  &.target {
+  &--target {
     box-shadow: 0 0 10px 0 $green inset, 0 0 0 0 $green;
     opacity: 0.6;
-    &.overlay {
+    &.dropBox--overlay {
       opacity: 0.9;
       box-shadow: 0 0 10px 0 $green inset, 0 0 50px 5px $green;
     }
   }
-  &.vertical {
+  &--vertical {
     display: block;
     position: relative;
     border-radius: 0.4em;
@@ -54,7 +54,7 @@
   &:hover {
     box-shadow: none;
   }
-  &.vertical {
+  &--vertical {
     border-radius: 0.4em;
     height: 55px;
     width: 55px;

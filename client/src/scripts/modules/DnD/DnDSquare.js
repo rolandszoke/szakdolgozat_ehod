@@ -24,16 +24,16 @@ function collect(connect, monitor) {
 class DnDSquare extends Component {
     render() {
         const { connectDropTarget, isOver } = this.props;
-        const overlay = isOver ? [' overlay'] : [' '];
+        const overlay = isOver ? [' dropBox--overlay'] : [' '];
         let target;
         if(this.props.picture!=="none") {
-            target=" target";
+            target=" dropBox--target";
         } else {
-            target=" source";
+            target=" dropBox--source";
         }
         let vertical;
         if(this.props.vertical=== true) {
-            vertical=" vertical";
+            vertical=" dropBox--vertical";
         } else {
             vertical=" ";
         }

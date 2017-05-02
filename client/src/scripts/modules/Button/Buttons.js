@@ -65,9 +65,9 @@ class Buttons extends Component {
         });
         //küldés és nullázás gomb elkészítése
         if (this.state.multiple === true) {
-            buttons2.push(<Button key="send" value="none" classes="send"
+            buttons2.push(<Button key="send" value="none" classes="btn--send"
                                   onClick={() => this.state.onClick(this.state.multiplePressed)}/>,
-                <Button key="reset" value="none" classes="reset"
+                <Button key="reset" value="none" classes="btn--reset"
                         onClick={() => this.resetButtons()}/>);
         }
 

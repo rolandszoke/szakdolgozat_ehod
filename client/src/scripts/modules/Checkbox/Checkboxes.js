@@ -70,8 +70,8 @@ class Checkboxes extends Component {
                 <div className="checkboxes">
                     {checkboxes}
                 </div>
-                <Button value="none" classes="send" onClick={() => this.state.onClick(this.state.checked)}/>
-                <Button value="none" classes="reset" onClick={() => this.resetBoxes()}/>
+                <Button value="none" classes="btn--send" onClick={() => this.state.onClick(this.state.checked)}/>
+                <Button value="none" classes="btn--reset" onClick={() => this.resetBoxes()}/>
             </div>
         )
     }

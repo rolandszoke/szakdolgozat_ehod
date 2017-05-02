@@ -22,7 +22,7 @@ class Element extends Component {
         const { connectDragSource, isDragging } = this.props;
         let vertical;
         if(this.props.vertical=== true) {
-            vertical=" vertical";
+            vertical=" element--vertical";
         } else {
             vertical=" ";
         }

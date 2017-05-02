@@ -32,7 +32,7 @@
     width: 70px;
   }
 
-  &.send {
+  &--send {
     display: block;
     position: absolute;
     height: 45px;
@@ -46,12 +46,12 @@
     @include text-shadow-3d-small;
     &:hover {
       box-shadow: none;
-      transform: scale(1);
+      transform: scale(1) !important;
       animation: greenNeonSmall 1.5s ease-in-out infinite alternate;
     }
   }
 
-  &.reset {
+  &--reset {
     display: block;
     position: absolute;
     height: 45px;
@@ -65,7 +65,7 @@
     @include text-shadow-3d-small;
     &:hover {
       box-shadow: none;
-      transform: scale(1);
+      transform: scale(1) !important;
       animation: yellowNeonSmall 1.5s ease-in-out infinite alternate;
     }
   }

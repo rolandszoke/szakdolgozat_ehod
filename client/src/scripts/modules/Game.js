@@ -12,7 +12,7 @@ class Game extends Component {
             currentGameData: null, //jelenlegi játék adatai
             flip: "game--noflip", //--noflip: játék felület mutatása; --flip: visszajelzési felület
             front: " ", //játék felület ablakot módosító classok
-            back: "back--wrong", //visszajelzési felületet módosító classok
+            back: "game__back--wrong", //visszajelzési felületet módosító classok
             backContent: null, //visszajelzési felület tartalma
             correctAnswers: 0, //helyes válaszok számlálója
             timer: setTimeout(function () { //időzítő a time játékmódhoz
@@ -39,20 +39,20 @@ class Game extends Component {
             //első indítás
             let content = this.renderStartPage(); //üdvözlő felület
             this.setState({
-                back: "back--start", front: " ", backContent: content, correctAnswers: 0,
+                back: "game__back--start", front: " ", backContent: content, correctAnswers: 0,
             });
             clearTimeout(this.state.timer); //időzítő nullázása
             this.getGames(props.gameMode, props.modifiers);
         } else {
             //válaszút játékmódok között
             if (props.gameMode[0] === "Időre") {
-                this.setState({front: "front--time", correctAnswers: 0});
+                this.setState({front: "game__front--time", correctAnswers: 0});
                 this.counter(); //időzítő beállítása
                 this.getGames(props.gameMode, props.modifiers); //játékok beállítása
             } else if (props.gameMode[0] === "Teszt") {
                 let content = this.renderTestInput(); //kód bemeneti felület biztosítása
                 this.setState({
-                    flip: "game--flip", back: "back--test", front: "front--test",
+                    flip: "game--flip", back: "game__back--test", front: "game__front--test",
                     backContent: content, gameMode: "Test", correctAnswers: 0
                 });
                 clearTimeout(this.state.timer); //időzítő nullázása
@@ -105,7 +105,7 @@ class Game extends Component {
             if (gm[0] === "Teszt") {
                 //Tesztnél, ha elfogytak a játékok nem indítjuk újra, kiírjuk a végeredményt
                 this.setState({
-                    back: "back--test",
+                    back: "game__back--test",
                     backContent: <div className="testUI"><p className="testUI__text">Gratulálok, végeztél!</p><p
                         className="testUI__text">Helyes válaszaid száma: {this.state.correctAnswers}</p></div>,
                     flip: "game--flip"
@@ -133,7 +133,7 @@ class Game extends Component {
         this.setState({
             timer: setTimeout(function () {
                 _this.setState({
-                    back: "back--info",
+                    back: "game__back--info",
                     backContent: "Lejárt az időd! Helyes válaszaid száma: " + _this.state.correctAnswers,
                     flip: "game--flip"
                 });
@@ -147,13 +147,13 @@ class Game extends Component {
         console.log("check if good: " + received + " for: " + correct);
         if (arraysEqual(correct, received)) {
             this.setState({
-                back: "back--right",
+                back: "game__back--right",
                 backContent: <img src="src/svg/check.svg"/>,
                 correctAnswers: this.state.correctAnswers + 1,
                 flip: "game--flip"
             }); //helyes
         } else {
-            this.setState({back: "back--wrong", backContent: "X", flip: "game--flip"}); //helytelen
+            this.setState({back: "game__back--wrong", backContent: "X", flip: "game--flip"}); //helytelen
         }
         if (this.state.gameMode[0] === "Időre" || this.state.gameMode[0] === "Teszt") {
             //időre játszásnál  vagy tesztnél 0,75 másodperc múlva azonnal kapjuk az új játékot (nem kattintásra történi a játék váltás)
@@ -219,33 +219,33 @@ class Game extends Component {
         });
 
         //amennyiben nem felfedezőbe játszunk kattintásra nem kapunk új játékot, hasonlóan a kezdő üdvözlésnél
-        let backClickEvent = (this.state.gameMode[0] === "Felfedező" && this.state.back !=="back--start") ?
+        let backClickEvent = (this.state.gameMode[0] === "Felfedező" && this.state.back !=="game__back--start") ?
             () => this.newGame(this.state.selectableGames, this.state.gameMode, this.state.modifiers)
             : () => "";
 
         return (
             <div className={"game " + this.state.flip}>
-                <div className={"front " + this.state.front}>
-                    <div className="game__info">
-                        <div className="game__info__header">
+                <div className={"game__front " + this.state.front}>
+                    <div className="game__front__info">
+                        <div className="game__front__info__header">
                             <h2 className="title">{this.state.currentGameData.title}</h2>
                             <h3 className="level">Szintek: {levels}</h3>
                         </div>
-                        <div className="game__info__description">{paragraphs}</div>
-                        <img className="game__info__img" src={this.state.currentGameData.mainImage} width="auto"
+                        <div className="game__front__info__description">{paragraphs}</div>
+                        <img className="game__front__info__img" src={this.state.currentGameData.mainImage} width="auto"
                              height="auto"/>
-                        <p className="game__info__question">{this.state.currentGameData.question}</p>
+                        <p className="game__front__info__question">{this.state.currentGameData.question}</p>
                     </div>
-                    <div className="game__board">
+                    <div className="game__front__board">
                         <Board
                             data={this.state.currentGameData}
                             onClick={(i) => this.handleClick(i)}
                         />
                     </div>
                 </div>
-                <div className={"back " + this.state.back}
+                <div className={"game__back " + this.state.back}
                      onClick={backClickEvent}>
-                    <div className="back__content">{this.state.backContent}</div>
+                    <div className="game__back__content">{this.state.backContent}</div>
                 </div>
             </div>
         );

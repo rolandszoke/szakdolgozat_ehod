@@ -66,6 +66,10 @@
       width: 100%;
     }
 
+    @media (max-height: 800px) {
+      height: 98%;
+    }
+
     //lista fejléce
     &__header {
       position: absolute;
@@ -88,10 +92,15 @@
         user-select: none;
         line-height: 27px;
         @include text-shadow-3d-small;
+
+        @media (max-width: 400px) {
+          font-size: 90%;
+        }
+
       }
     }
 
-    //lista lábfeje
+    //lista lábléce
     &__footer {
       position: absolute;
       bottom: 0;
@@ -124,6 +133,10 @@
       top: 80px;
       overflow: auto;
 
+      @media (max-height: 800px) {
+        height: 85%;
+      }
+
       table {
         border-collapse: collapse !important;
         border: none !important;
@@ -149,7 +162,7 @@
             background: lighten($purple, 10%);
             color: $white;
             padding: 5px 5px 5px 30px;
-            text-align: left;
+            text-align: center;
             font-family: 'robotoregular', Arial, sans-serif;
             font-weight: 600;
             font-size: 120%;
@@ -157,6 +170,9 @@
             text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
             &:last-child {
               border-left: 3px solid $white;
+              @media (max-width: 430px) {
+                border: none;
+              }
             }
           }
         }
@@ -169,7 +185,7 @@
       }
 
       &__item { //egy játék sora
-
+        //display: block;
         th {
           position: relative;
           background: $shadow--veryLight;
@@ -229,6 +245,17 @@
         }
         &:hover {
           box-shadow: inset 0 0 0 2px $white;
+        }
+
+        &:last-child {
+          @media (max-height: 800px) {
+            th {
+              padding-bottom: 100px;
+              .check {
+                top: 15px;
+              }
+            }
+          }
         }
       }
     }

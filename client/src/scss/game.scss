@@ -26,8 +26,8 @@
   }
 
   //kártya eleje, hátulja
-  .front,
-  .back {
+  &__front,
+  &__back {
     display: table;
     width: 100%;
     position: absolute;
@@ -39,15 +39,93 @@
   }
 
   //kártya eleje
-  .front {
+  &__front {
     display: grid;
     min-height: 800px;
     transform: rotateY(0deg);
     background: $background-app;
     margin-bottom: 30px;
 
+    //játék információi
+    &__info {
+      position: relative;
+      height: auto;;
+
+      //fő kép
+      &__img {
+        border-radius: 0.3em;
+        margin: 0 10px 10px;
+        max-width: 75%;
+        max-height: 270px;
+        transition: all 400ms;
+        &:hover {
+          background: rgba($white, 1);
+          transform: scale(1.3);
+        }
+      }
+
+      //játék leírás
+      &__description {
+        margin: 0 30px;
+        padding: 9px;
+        text-align: left;
+        font-family: 'robotoregular', Arial, sans-serif;
+        font-weight: 400;
+        font-size: 110%;
+        line-height: 1.2;
+        text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
+        p {
+          text-indent: 5px;
+          margin: 5px 5px;
+        }
+        @media (max-width: 500px) {
+          font-size: 95%;
+        }
+      }
+
+      //játék fejléce
+      &__header {
+        position: relative;
+        background: rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+        border-radius: 10px 10px 0 0;
+        padding-bottom: 10px;
+
+        @media (max-width: 500px) {
+          .title {
+            font-size: 110%
+          }
+          .level {
+            font-size: 100%
+          }
+        }
+
+        //cím
+        .title {
+          display: inline-block;
+          margin-top: 20px;
+          text-transform: uppercase;
+        }
+
+        //szintek
+        .level {
+          margin: 5px 10px;
+          text-transform: uppercase;
+        }
+      }
+
+      //kérdés
+      &__question {
+        text-align: center;
+        margin: 10px 75px;
+        font-family: 'robotoregular', Arial, sans-serif;
+        font-size: 120%;
+        text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
+      }
+    }
+
     //interakciós felület
-    .game__board {
+    &__board {
       display: table-row;
       p {
         margin-top: 0;
@@ -64,24 +142,24 @@
         }
       }
     }
-    &.front--time { //kártya eleje időre játszásnál
+    &--time { //kártya eleje időre játszásnál
       animation: blueNeonSmall 1.5s ease-in-out infinite alternate;
     }
-    &.front--test { //kártya eleje tesztnél
+    &--test { //kártya eleje tesztnél
       animation: purpleNeonSmall 1.5s ease-in-out infinite alternate;
     }
   }
 
   //kártya hátulja
-  .back {
+  &__back {
     height: 100%;
     transform: rotateY(180deg);
 
-    &.back--right {
+    &--right {
       background: linear-gradient(to bottom right, #009970, #84DD63);
       animation: greenNeon 1.5s ease-in-out infinite alternate;
       cursor: pointer;
-      .back__content {
+      .game__back__content {
         @media (max-width: 500px) {
           img {
             width: 300px;
@@ -90,11 +168,11 @@
       }
     }
 
-    &.back--wrong { //helytelen válasz esetén
+    &--wrong { //helytelen válasz esetén
       background: linear-gradient(to bottom right, #992020, #dd4347);
       animation: redNeon 1.5s ease-in-out infinite alternate;
       cursor: pointer;
-      .back__content {
+      .game__back__content {
         font-size: 3500%;
         @media (max-width: 500px) {
           font-size: 2000%;
@@ -102,10 +180,10 @@
       }
     }
 
-    &.back--info { //időre játszásnál, ha lejárt az idő
+    &--info { //időre játszásnál, ha lejárt az idő
       background: linear-gradient(to bottom right, #1f7ddb, #6cb6db);
       animation: blueNeon 1.5s ease-in-out infinite alternate;
-      .back__content {
+      .game__back__content {
         width: 80%;
         padding: 20px;
         font-size: 300%;
@@ -118,10 +196,10 @@
       }
     }
 
-    &.back--start { //kezdő, üdvözlő felület
+    &--start { //kezdő, üdvözlő felület
       background: linear-gradient(to bottom right, $green, $turquoise);
       animation: none;
-      .back__content {
+      .game__back__content {
         width: 80%;
         .startUI {
           &__welcome {
@@ -155,10 +233,10 @@
       }
     }
 
-    &.back--test { //tesztnél
+    &--test { //tesztnél
       background: linear-gradient(to bottom right, #8e44ad, #cf66ff);
       animation: purpleNeon 1.5s ease-in-out infinite alternate;
-      .back__content {
+      .game__back__content {
         width: 80%;
         .testUI {
           &__text {
@@ -191,95 +269,21 @@
       }
     }
 
-    .back__content {
+    &__content {
       position: absolute;
       top: 50%;
       left: 50%;
       margin: 0;
       transform: translate(-50%, -50%);
       text-shadow: none;
-
     }
-
   }
-  &.game--flip .front {
+
+  &--flip &__front {
     transform: rotateY(-180deg);
   }
-  &.game--flip .back {
+  &--flip &__back {
     transform: rotateY(0deg);
   }
 
-  //játék információi
-  &__info {
-    position: relative;
-    height: auto;;
-
-    //fő kép
-    &__img {
-      border-radius: 0.3em;
-      margin: 0 10px 10px;
-      max-width: 75%;
-      max-height: 270px;
-      transition: all 400ms;
-      &:hover {
-        background: rgba($white, 1);
-        transform: scale(1.3);
-      }
-    }
-
-    //játék leírás
-    &__description {
-      margin: 0 30px;
-      padding: 9px;
-      text-align: left;
-      font-family: 'robotoregular', Arial, sans-serif;
-      font-weight: 400;
-      font-size: 110%;
-      line-height: 1.2;
-      text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
-      p {
-        text-indent: 5px;
-        margin: 5px 5px;
-      }
-      @media (max-width: 500px) {
-        font-size: 95%;
-      }
-    }
-
-    //játék fejléce
-    &__header {
-      position: relative;
-      background: rgba(0, 0, 0, 0.2);
-      overflow: hidden;
-      border-radius: 10px 10px 0 0;
-      padding-bottom: 10px;
-
-      @media (max-width: 500px) {
-        .title{font-size: 110%}
-        .level{font-size: 100%}
-      }
-
-      //cím
-      .title {
-        display: inline-block;
-        margin-top: 20px;
-        text-transform: uppercase;
-      }
-
-      //szintek
-      .level {
-        margin: 5px 10px;
-        text-transform: uppercase;
-      }
-    }
-
-    //kérdés
-    &__question {
-      text-align: center;
-      margin: 10px 75px;
-      font-family: 'robotoregular', Arial, sans-serif;
-      font-size: 120%;
-      text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
-    }
-  }
 }

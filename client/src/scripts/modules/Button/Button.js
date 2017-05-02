@@ -28,8 +28,8 @@ class Button extends Component {
         return (
             <button className={"btn " + this.state.classes} onClick={() => this.state.onClick()}
                     style={{background: style}}>
-                {this.state.classes === "send" ? "Küldés" : ""}
-                {this.state.classes === "reset" ? "Újraindítás" : ""}
+                {this.state.classes === "btn--send" ? "Küldés" : ""}
+                {this.state.classes === "btn--reset" ? "Újraindítás" : ""}
             </button>
         );
     }
