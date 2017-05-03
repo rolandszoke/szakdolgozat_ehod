@@ -1,6 +1,7 @@
 @import 'mixin.scss';
 @import 'colors.scss';
 
+//dropboxok felülete
 .dnd {
   position: relative;
   width: 83%;
@@ -12,10 +13,12 @@
   justify-content: center;
 }
 
+//egy dropbox által elfoglalt terület
 .flexBox {
   position: relative;
 }
 
+//dropbox mező
 .dropBox {
   @include box;
   display: inline-block;
@@ -23,20 +26,24 @@
   box-shadow: 0 0 20px 0 $blue inset, 0 0 0 0 $blue;
   transition: box-shadow 150ms ease-in-out;
 
+  //mező, melyben van mozgatható elem
   &--source {
     &:hover {
       box-shadow: 0 0 10px 0 $blue inset, 0 0 50px 5px $blue;
     }
   }
 
+  //üres mező
   &--target {
     box-shadow: 0 0 10px 0 $green inset, 0 0 0 0 $green;
     opacity: 0.6;
+    //üres mező melybe készülünk elhelyezni egy mozgatható elemet
     &.dropBox--overlay {
       opacity: 0.9;
       box-shadow: 0 0 10px 0 $green inset, 0 0 50px 5px $green;
     }
   }
+  //vertikális elhelyezés esetén mezők
   &--vertical {
     display: block;
     position: relative;
@@ -47,6 +54,7 @@
   }
 }
 
+//mozgatható elem
 .element {
   @include box;
   box-shadow: 0 0 20px 0 $blue inset, 0 0 0 0 $blue;
@@ -54,6 +62,7 @@
   &:hover {
     box-shadow: none;
   }
+  //vertikális elhelyezés esetén elemek
   &--vertical {
     border-radius: 0.4em;
     height: 55px;

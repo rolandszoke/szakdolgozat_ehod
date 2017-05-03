@@ -1,6 +1,7 @@
 @import 'colors.scss';
 @import 'mixin.scss';
 
+//interakciós gombok felülete
 .buttons {
   position: relative;
   display: flex;
@@ -9,6 +10,7 @@
   //margin: 5px 30px;
 }
 
+//interakciós gomb
 .btn {
   position: relative;
   display: inline-block;
@@ -32,6 +34,7 @@
     width: 70px;
   }
 
+  //küldés gomb
   &--send {
     display: block;
     position: absolute;
@@ -51,6 +54,7 @@
     }
   }
 
+  //újraindítás gomb
   &--reset {
     display: block;
     position: absolute;
@@ -85,6 +89,7 @@
     box-shadow: 0 0 10px 0 $blue inset, 0 0 10px 4px $blue;
   }
 
+  //többszörös gomb lenyomsásos interakció módosításai
   &--multiple {
     height: 65px;
     width: 65px;

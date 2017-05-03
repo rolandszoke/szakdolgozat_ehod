@@ -1,6 +1,7 @@
 @import 'mixin.scss';
 @import 'colors.scss';
 
+//kijelölhető dobozok felülete
 .checkboxes {
   position: relative;
   width: 83%;
@@ -9,12 +10,14 @@
   flex-flow: row wrap;
   margin: 0 auto 50px;
 
+  //kijelölhető doboz
   .checkbox {
     position: relative;
     display: inline-block;
     flex: 1;
     transition: transform 150ms ease-in-out;
 
+    //kijelölhető doboz label-je
     &__box {
       position: relative;
       display: inline-block;
@@ -25,9 +28,11 @@
       margin: 10px;
       transition: all 150ms ease-in-out;
 
+      //kijelölve
       &--checked {
         box-shadow: 0 0 10px 0 $green inset, 0 0 50px 5px $green;
       }
+      //nincs kijelölve
       &--unchecked {
         box-shadow: 0 0 10px 0 $red inset, 0 0 50px 5px $red;
       }
@@ -40,6 +45,8 @@
     &:hover > &__box--unchecked {
       box-shadow: 0 0 10px 0 $blue inset, 0 0 50px 5px $blue;
     }
+
+    //kijelölhető doboz inputja
     input {
       position: absolute;
       left: 0;
