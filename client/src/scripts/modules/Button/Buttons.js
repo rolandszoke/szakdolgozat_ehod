@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Button from './Button.js';
+import PropTypes from 'prop-types';
 
 class Buttons extends Component {
     constructor(props) {
@@ -83,5 +84,11 @@ class Buttons extends Component {
 
     }
 }
+
+Buttons.propTypes = {
+    answerImages: PropTypes.array.isRequired,
+    onClick: PropTypes.func.isRequired,
+    multiple: PropTypes.bool.isRequired,
+};
 
 export default Buttons;

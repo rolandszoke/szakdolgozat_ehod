@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import DnDSquare from './DnDSquare.js';
 import Element from './Element.js';
 import {DragDropContext} from 'react-dnd';
@@ -24,10 +25,6 @@ class DnD extends Component {
             positions: pos, //mozgatható elemek pozíciója (hányadik indexü mezőban szerepelnek sorba az elemek)
             vertical: props.vertical, //megoldási mezők vertikális vagy horizontális állásuak
         };
-    }
-
-    componentDidUpdate() {
-        console.log(this.state.positions);
     }
 
     componentWillReceiveProps(nextProps) {
@@ -152,6 +149,13 @@ class DnD extends Component {
         )
     }
 }
+
+DnD.propTypes = {
+    dragImages: PropTypes.array.isRequired,
+    dropImages: PropTypes.array.isRequired,
+    onClick: PropTypes.func.isRequired,
+    vertical: PropTypes.bool.isRequired,
+};
 
 //mobil detektáló
 function detect() {

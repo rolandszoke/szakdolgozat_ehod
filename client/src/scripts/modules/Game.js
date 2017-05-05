@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Board from './Board.js';
+import PropTypes from 'prop-types';
 
 class Game extends Component {
     constructor(props) {
@@ -24,7 +25,6 @@ class Game extends Component {
     }
 
     componentWillMount() {
-
         //első indítás
         this.setUp(this.state);
     }
@@ -251,6 +251,11 @@ class Game extends Component {
         );
     }
 }
+
+Game.propTypes = {
+    gameMode: PropTypes.array.isRequired,
+    modifiers: PropTypes.array.isRequired,
+};
 
 function arraysEqual(arr1, arr2) {
     //paraméterben megadott listák egyenlőek-e

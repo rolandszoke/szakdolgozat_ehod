@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 
 class Menu extends Component {
     constructor(props) {
@@ -64,6 +65,56 @@ class Menu extends Component {
         )
     }
 
+    renderInfo() {
+        //információs felületek létrehozása
+        return (
+            <div className="nav__info" key="info">
+                <input type="checkbox"/>
+                <label>INFO</label>
+                <div className="nav__info__text">
+                    <p>A kérdések három nehézségi szinten csak strukturált és logikus gondolkodást igényelnek,
+                        semmilyen
+                        különleges informatikai tudás nem szükséges a megválaszolásukhoz. A feladatok érdekes
+                        problémákat
+                        mutatnak be. Nem tesztek, inkább szórakoztató gondolkodtató feladványok.
+                    </p>
+                    <p>
+                        Magyarországon 2016-ban hatodik alkalommal, öt korcsoportban vehettek részt a diákok 4-től
+                        12. osztályig. A részvétel mindenki számára ingyenes.
+                    </p>
+                    <p>
+                        Szabályok:
+                        <li> A verseny lebonyolítása iskolai helyszíneken történik.</li>
+                        <li> A résztvevők online kapják meg és válaszoljak meg a kérdéseket;</li>
+                        <li> A versenyre fordítandó idő 45 perc, 18 feladat három nehézségi szinten: könnyű, közepes
+                            es
+                            nehéz;
+                        </li>
+                        <li> A verseny alatt semmilyen más számítógépes program, alkalmazás nem használható;</li>
+                        <li> A verseny során nyugalmas környezetet kell biztosítani;</li>
+                        <li> A terem a verseny során nem hagyható el;</li>
+                        <li> Az esetleges számítógéppel, internettel kapcsolatos észrevételeket a kontakt személynek
+                            kell
+                            összegyűjtenie és továbbítania a szervezők felé;
+                        </li>
+                        <li> A verseny célja: minél több pont összegyűjtése helyes válaszok megjelölésével,
+                            helytelen válaszok
+                            eseten pontlevonás történik;
+                        </li>
+                        <li> A kérdések tetszőleges sorrendben megválaszolhatóak;</li>
+                        <li> A kérdések, problémák megértése a feladat részét képezi. Ezért a feladatok megbeszélése
+                            és
+                            értelmezéssel kapcsolatos kérdések nem megengedettek;
+                        </li>
+                        <li> A megoldások a verseny befejezése után, a hod hetet követően kerülnek nyilvánosságra.
+                        </li>
+                    </p>
+                </div>
+                <div className="shadow"></div>
+            </div>
+        )
+    }
+
 
     render() {
         let checkboxes_1 = ["Könnyű", "Közepes", "Nehéz"]; //lehetséges nehézségi szintek
@@ -84,6 +135,7 @@ class Menu extends Component {
         });
         //navigációs felületek renderelése
         let nav = [];
+        nav.push(_this.renderInfo());
         nav.push(_this.renderNav(radios, "menu--left"));
         if (this.state.gameMode[0] !== "Időre" && this.state.gameMode[1] !== "Összes" && this.state.gameMode[0] !== "Teszt") {
             nav.push(_this.renderNav(checkboxes, "menu--right"));
@@ -93,54 +145,17 @@ class Menu extends Component {
 
         return (
             <div className="nav">
-                <div className="nav__info">
-                    <input type="checkbox"/>
-                    <label>INFO</label>
-                    <div className="nav__info__text">
-                        <p>A kérdések három nehézségi szinten csak strukturált és logikus gondolkodást igényelnek,
-                            semmilyen
-                            különleges informatikai tudás nem szükséges a megválaszolásukhoz. A feladatok érdekes
-                            problémákat
-                            mutatnak be. Nem tesztek, inkább szórakoztató gondolkodtató feladványok.
-                        </p>
-                        <p>
-                            Magyarországon 2016-ban hatodik alkalommal, öt korcsoportban vehettek részt a diákok 4-től
-                            12. osztályig. A részvétel mindenki számára ingyenes.
-                        </p>
-                        <p>
-                            Szabályok:
-                            <li> A verseny lebonyolítása iskolai helyszíneken történik.</li>
-                            <li> A résztvevők online kapják meg és válaszoljak meg a kérdéseket;</li>
-                            <li> A versenyre fordítandó idő 45 perc, 18 feladat három nehézségi szinten: könnyű, közepes
-                                es
-                                nehéz;
-                            </li>
-                            <li> A verseny alatt semmilyen más számítógépes program, alkalmazás nem használható;</li>
-                            <li> A verseny során nyugalmas környezetet kell biztosítani;</li>
-                            <li> A terem a verseny során nem hagyható el;</li>
-                            <li> Az esetleges számítógéppel, internettel kapcsolatos észrevételeket a kontakt személynek
-                                kell
-                                összegyűjtenie és továbbítania a szervezők felé;
-                            </li>
-                            <li> A verseny célja: minél több pont összegyűjtése helyes válaszok megjelölésével,
-                                helytelen válaszok
-                                eseten pontlevonás történik;
-                            </li>
-                            <li> A kérdések tetszőleges sorrendben megválaszolhatóak;</li>
-                            <li> A kérdések, problémák megértése a feladat részét képezi. Ezért a feladatok megbeszélése
-                                és
-                                értelmezéssel kapcsolatos kérdések nem megengedettek;
-                            </li>
-                            <li> A megoldások a verseny befejezése után, a hod hetet követően kerülnek nyilvánosságra.
-                            </li>
-                        </p>
-                    </div>
-                    <div className="shadow"></div>
-                </div>
                 {nav}
             </div>
         );
     }
 }
+
+Menu.propTypes = {
+    gameMode: PropTypes.array.isRequired,
+    modifiers: PropTypes.array.isRequired,
+    changeGameMode: PropTypes.func.isRequired,
+    changeModifiers: PropTypes.func.isRequired,
+};
 
 export default Menu;

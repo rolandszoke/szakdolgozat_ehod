@@ -1,12 +1,13 @@
 import React, {Component} from 'react';
 import CopyToClipboard from 'react-copy-to-clipboard';
+import PropTypes from 'prop-types';
 
 class CreateTest extends Component {
     constructor(props) {
         super(props);
         this.state = {
             open: false, //true: ablak nyitva van, false: zárva
-            allGames: require("../../json/games.json"), //a kiválasztható játékok listája az adott szűrést alkalmazva
+            allGames: require("../../json/games.json"), //a kiválasztható játékok listája
             openCreateTest: props.openCreateTest, //paraméterbe megadott metódus a megnyitásra/bezárásra
             checked: [], //kijelölt feladatok id-jének listája
             code: "", //elkészített kód a kijelölt játékok listájából
@@ -22,7 +23,7 @@ class CreateTest extends Component {
 
     closeList() {
         //lista bezárása
-        this.setState({open: false, checked: [], code: "", copy: false});
+        this.setState({open: false, checked: [], code: "", copied: false});
         this.state.openCreateTest(false);
     }
 
@@ -33,11 +34,6 @@ class CreateTest extends Component {
             code += e + ".";
         });
         this.setState({code: code});
-    }
-
-    copy() {
-        //kód másolásának visszajelzése
-        this.setState({copied: true});
     }
 
     checkGame(id) {
@@ -124,7 +120,7 @@ class CreateTest extends Component {
                 <div className={"popup popup" + popupMod}>
                     <div className="popup__close" onClick={() => this.setState({code: "", copied: false})}>X</div>
                     <div className={"code code" + codeMod}>{this.state.code}</div>
-                    <CopyToClipboard text={this.state.code} onCopy={() => this.copy()}>
+                    <CopyToClipboard text={this.state.code} onCopy={() => this.setState({copied: true})}>
                         <div className="popup__copy">Másol</div>
                     </CopyToClipboard>
                 </div>
@@ -133,5 +129,9 @@ class CreateTest extends Component {
         );
     }
 }
+
+CreateTest.propTypes = {
+    openCreateTest: PropTypes.func.isRequired,
+};
 
 export default CreateTest;

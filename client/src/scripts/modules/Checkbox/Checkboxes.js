@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Checkbox from './Checkbox.js';
 import Button from '../Button/Button.js';
+import PropTypes from 'prop-types';
 
 class Checkboxes extends Component {
     constructor(props) {
@@ -53,7 +54,7 @@ class Checkboxes extends Component {
     renderCheckbox(i, rowNum) {
         //checbox renderelése
         let checked = this.isChecked(i);
-        return <Checkbox key={i} rowNum={rowNum} uncheck={this.state.uncheckImages[i]} check={this.state.checkImages[i]}
+        return <Checkbox key={i} rowNum={rowNum} uncheckImg={this.state.uncheckImages[i]} checkImg={this.state.checkImages[i]}
                          checkClick={() => this.checkClick(i)} checked={checked}/>;
     }
 
@@ -76,5 +77,11 @@ class Checkboxes extends Component {
         )
     }
 }
+
+Checkboxes.propTypes = {
+    checkImages: PropTypes.array.isRequired,
+    uncheckImages: PropTypes.array.isRequired,
+    onClick: PropTypes.func.isRequired,
+};
 
 export default Checkboxes;

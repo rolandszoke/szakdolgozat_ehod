@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Buttons from './Button/Buttons.js';
 import Checkboxes from './Checkbox/Checkboxes.js';
 import DnD from './DnD/DnD.js';
+import PropTypes from 'prop-types';
 
 class Board extends Component {
     constructor(props) {
@@ -42,6 +43,11 @@ class Board extends Component {
         }
     }
 }
+
+Board.propTypes = {
+    data: PropTypes.object.isRequired,
+    onClick: PropTypes.func.isRequired,
+};
 
 
 export default Board;

@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 
 class Checkbox extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            uncheck: props.uncheck, //kijelölt állapot képe
-            check: props.check, //ki nem jelölt állapot képe
+            uncheckImg: props.uncheckImg, //kijelölt állapot képe
+            checkImg: props.checkImg, //ki nem jelölt állapot képe
             checkClick: props.checkClick, //checkboxra kattintás metódusa
             checked: props.checked, //ki van-e jelölve
         };
@@ -14,8 +15,8 @@ class Checkbox extends Component {
     componentWillReceiveProps(nextProps) {
         //módosult tulajdonságoknál frissítjük az adatokat
         this.setState({
-            uncheck: nextProps.uncheck,
-            check: nextProps.check,
+            uncheckImg: nextProps.uncheckImg,
+            checkImg: nextProps.checkImg,
             checkClick: nextProps.checkClick,
             checked: nextProps.checked,
         });
@@ -25,10 +26,10 @@ class Checkbox extends Component {
         let backg; //hozzá tartozó kép
         let classes; //css class-ai
         if (this.state.checked) { //ki van jelölve
-            backg = this.state.check;
+            backg = this.state.checkImg;
             classes = "checkbox__box--checked";
         } else { //nincs kijelölve
-            backg = this.state.uncheck;
+            backg = this.state.uncheckImg;
             classes = "checkbox__box--unchecked";
         }
         let flexBasis = 100 / this.props.rowNum; //mennyi helyet foglal el a checkbox a sorba
@@ -41,5 +42,12 @@ class Checkbox extends Component {
         );
     }
 }
+
+Checkbox.propTypes = {
+    uncheckImg: PropTypes.string.isRequired,
+    checkImg: PropTypes.string.isRequired,
+    checkClick: PropTypes.func.isRequired,
+    checked: PropTypes.bool.isRequired,
+};
 
 export default Checkbox;
