@@ -1,6 +1,6 @@
 {
   "type": "checkbox",
-  "title": "Szulinapi gyertyak",
+  "title": "Szülinapi gyertyák",
   "level": ["Kadét - Könnyű", "Benjamin - Közepes"],
   "description": ["Ma van Bodos 11. szülinapja. Bodos Anyuka viszont csak öt gyertyát talált. Szerencsére tudja, miként lehet az 5 gyertyával a 11-et ábrázolni. Fel is állította szépen a gyertyákat a torta tetejére, sorban egymás mellé:","• A jobboldali gyertya egyet ér!","• Minden másik gyertya a tőle jobbra levő gyertya dupláját éri!","• Csak az égő gyertyákat számoljuk!","Például:"],
   "question": "Mely gyertyák égnek Bodos tortáján a 11. születésnapján?",

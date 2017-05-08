@@ -21,7 +21,7 @@ class DnD extends Component {
         this.state = {
             dragImages: props.dragImages, //mozgatható elemek, képeik
             dropImages: props.dropImages, //üres mezők, melyekbe a választ adjuk meg, képeik
-            onClick: props.onClick, //megoldás elküldésének metódusa
+            sendAnswer: props.onClick, //megoldás elküldésének metódusa
             positions: pos, //mozgatható elemek pozíciója (hányadik indexü mezőban szerepelnek sorba az elemek)
             vertical: props.vertical, //megoldási mezők vertikális vagy horizontális állásuak
         };
@@ -38,7 +38,7 @@ class DnD extends Component {
         this.setState({
             dragImages: nextProps.dragImages,
             dropImages: nextProps.dropImages,
-            onClick: nextProps.onClick,
+            sendAnswer: nextProps.onClick,
             positions: pos,
             vertical: nextProps.vertical,
         });
@@ -143,7 +143,7 @@ class DnD extends Component {
                 <div className="dnd">
                     {squares}
                 </div>
-                <Button value="none" classes="btn--send" onClick={() => this.state.onClick(targetSquareElements)}/>
+                <Button value="none" classes="btn--send" onClick={() => this.state.sendAnswer(targetSquareElements)}/>
                 <Button value="none" classes="btn--reset" onClick={() => this.resetBoxes()}/>
             </div>
         )

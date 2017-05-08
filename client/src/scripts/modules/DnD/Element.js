@@ -41,7 +41,8 @@ class Element extends Component {
 Element.propTypes = {
     connectDragSource: PropTypes.func.isRequired,
     isDragging: PropTypes.bool.isRequired,
-    vertical: PropTypes.bool.isRequired
+    vertical: PropTypes.bool.isRequired,
+    picture: PropTypes.string.isRequired,
 };
 
 export default DragSource(ItemTypes.ELEMENT, elementSource, collect)(Element);

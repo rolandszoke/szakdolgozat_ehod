@@ -72,42 +72,26 @@ class Menu extends Component {
                 <input type="checkbox"/>
                 <label>INFO</label>
                 <div className="nav__info__text">
-                    <p>A kérdések három nehézségi szinten csak strukturált és logikus gondolkodást igényelnek,
-                        semmilyen
-                        különleges informatikai tudás nem szükséges a megválaszolásukhoz. A feladatok érdekes
-                        problémákat
+                    <p>
+                        Az e-Hód interaktív gyakorló felülete vájra lelkes, tudásra éhes diákjait!
+                    </p>
+                    <p>A kérdések minden korosztályra külön kategorizálva, három nehézségi szinten csak strukturált és logikus gondolkodást igényelnek,
+                        semmilyen különleges informatikai tudás nem szükséges a megválaszolásukhoz. A feladatok érdekes problémákat
                         mutatnak be. Nem tesztek, inkább szórakoztató gondolkodtató feladványok.
                     </p>
                     <p>
-                        Magyarországon 2016-ban hatodik alkalommal, öt korcsoportban vehettek részt a diákok 4-től
-                        12. osztályig. A részvétel mindenki számára ingyenes.
+                        Az életkor-kategóriákból ötöt különböztetünk meg:
+                        <li>Kishód (4. osztály)</li>
+                        <li>Benjamin (5. és 6. osztály)</li>
+                        <li>Kadét (7. és 8. osztály)</li>
+                        <li>Junior (9. és 10. osztály)</li>
+                        <li>Senior (11. és 12. osztály)</li>
                     </p>
                     <p>
-                        Szabályok:
-                        <li> A verseny lebonyolítása iskolai helyszíneken történik.</li>
-                        <li> A résztvevők online kapják meg és válaszoljak meg a kérdéseket;</li>
-                        <li> A versenyre fordítandó idő 45 perc, 18 feladat három nehézségi szinten: könnyű, közepes
-                            es
-                            nehéz;
-                        </li>
-                        <li> A verseny alatt semmilyen más számítógépes program, alkalmazás nem használható;</li>
-                        <li> A verseny során nyugalmas környezetet kell biztosítani;</li>
-                        <li> A terem a verseny során nem hagyható el;</li>
-                        <li> Az esetleges számítógéppel, internettel kapcsolatos észrevételeket a kontakt személynek
-                            kell
-                            összegyűjtenie és továbbítania a szervezők felé;
-                        </li>
-                        <li> A verseny célja: minél több pont összegyűjtése helyes válaszok megjelölésével,
-                            helytelen válaszok
-                            eseten pontlevonás történik;
-                        </li>
-                        <li> A kérdések tetszőleges sorrendben megválaszolhatóak;</li>
-                        <li> A kérdések, problémák megértése a feladat részét képezi. Ezért a feladatok megbeszélése
-                            és
-                            értelmezéssel kapcsolatos kérdések nem megengedettek;
-                        </li>
-                        <li> A megoldások a verseny befejezése után, a hod hetet követően kerülnek nyilvánosságra.
-                        </li>
+                        Három játékmódot próbálhatnak ki a diákok: Felfedező, Időre, Teszt.
+                        <li><strong>Felfedező</strong>: véletlen sorrendbe jelennek meg a játékok végtelen mennyiségben.</li>
+                        <li><strong>Időre</strong>: időre kell megoldani a lehető legtöbb feladatot helyesen.</li>
+                        <li><strong>Teszt</strong>: megadott tesztkóddal kaphatunk egy feladatsort, amiből lehető legtöbb feladatot kell megoldanunk helyesen.</li>
                     </p>
                 </div>
                 <div className="shadow"></div>

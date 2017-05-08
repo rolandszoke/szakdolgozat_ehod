@@ -9,13 +9,13 @@ class Board extends Component {
         super(props);
         this.state = {
             data: props.data, //aktuális játék adatai
-            onClick: props.onClick, //válasz adás metódusa
+            sendAnswer: props.onClick, //válasz adás metódusa
         };
     }
 
     componentWillReceiveProps(nextProps) {
         //új játéknál frissítjük az adatokat
-        this.setState({data: nextProps.data, onClick: nextProps.onClick});
+        this.setState({data: nextProps.data, sendAnswer: nextProps.onClick});
     }
 
     render() {
@@ -23,22 +23,22 @@ class Board extends Component {
         if (this.state.data.type === "button") { //gomb
             return (
                 <Buttons multiple={this.state.data.multiple} answerImages={this.state.data.answerImages}
-                         onClick={(i) => this.state.onClick(i)}/>
+                         onClick={(i) => this.state.sendAnswer(i)}/>
             );
         } else if (this.state.data.type === "dnd") { //drag and drop
             return (
                 <DnD vertical={this.state.data.vertical} dragImages={this.state.data.dragImages}
                      dropImages={this.state.data.dropImages}
-                     onClick={(i) => this.state.onClick(i)}/>
+                     onClick={(i) => this.state.sendAnswer(i)}/>
             );
         } else if (this.state.data.type === "checkbox") { //checkbox
             return (
                 <Checkboxes checkImages={this.state.data.checkImages} uncheckImages={this.state.data.uncheckImages}
-                            onClick={(i) => this.state.onClick(i)}/>
+                            onClick={(i) => this.state.sendAnswer(i)}/>
             );
         } else {
             return (
-                <p>Error, nincs ilyen játéktípus reprezentálva a programban</p>
+                <p>Hiba, nincs ilyen játéktípus reprezentálva a programban</p>
             );
         }
     }

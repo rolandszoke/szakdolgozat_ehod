@@ -113,12 +113,30 @@ $big3d: //    3d
   }
 }
 
+@mixin neonColorFixed($color) {
+  from {
+    box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px $color, 0 0 70px $color, 0 0 80px $color, 0 0 100px $color, 0 0 150px $color;
+  }
+  to {
+    box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px $color, 0 0 70px $color, 0 0 80px $color, 0 0 100px $color, 0 0 150px $color;
+  }
+}
+
 @mixin neonColorSmall($color) {
   from {
     box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px $color, 0 0 70px $color;
   }
   to {
     box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px $color, 0 0 35px $color;
+  }
+}
+
+@mixin neonColorSmallFixed($color) {
+  from {
+    box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px $color, 0 0 70px $color;
+  }
+  to {
+    box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px $color, 0 0 70px $color;
   }
 }
 
@@ -161,6 +179,38 @@ $big3d: //    3d
 
 @keyframes purpleNeonSmall {
   @include neonColorSmall($purple);
+}
+
+@-moz-keyframes redNeon {
+  @include neonColorFixed($red);
+}
+
+@-moz-keyframes greenNeon {
+  @include neonColorFixed($green);
+}
+
+@-moz-keyframes blueNeon {
+  @include neonColorFixed($blue);
+}
+
+@-moz-keyframes purpleNeon {
+  @include neonColorFixed($purple);
+}
+
+@-moz-keyframes blueNeonSmall {
+  @include neonColorSmallFixed($blue);
+}
+
+@-moz-keyframes greenNeonSmall {
+  @include neonColorSmallFixed($green);
+}
+
+@-moz-keyframes yellowNeonSmall {
+  @include neonColorSmallFixed($yellow);
+}
+
+@-moz-keyframes purpleNeonSmall {
+  @include neonColorSmallFixed($purple);
 }
 
 @mixin timer($item, $duration, $size, $color, $border, $hover: running) {

@@ -52,9 +52,9 @@ DnDSquare.propTypes = {
     x: PropTypes.number.isRequired,
     canMoveElement: PropTypes.func.isRequired,
     moveElement: PropTypes.func.isRequired,
-    isOver: PropTypes.bool.isRequired,
     connectDropTarget: PropTypes.func.isRequired,
     rowNum: PropTypes.number.isRequired,
+    picture: PropTypes.string,
     vertical: PropTypes.bool.isRequired,
 };
 

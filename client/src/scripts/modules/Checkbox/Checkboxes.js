@@ -9,7 +9,7 @@ class Checkboxes extends Component {
         this.state = {
             checkImages: props.checkImages, //kijelölt checkboxok képei
             uncheckImages: props.uncheckImages, //ki nem jelölt checkboxos képei
-            onClick: props.onClick, //beküldés metódusa
+            sendAnswer: props.onClick, //beküldés metódusa
             checked: [], //kijelölt checkboxos listája
         };
     }
@@ -19,7 +19,7 @@ class Checkboxes extends Component {
         this.setState({
             checkImages: nextProps.checkImages,
             uncheckImages: nextProps.uncheckImages,
-            onClick: nextProps.onClick,
+            sendAnswer: nextProps.onClick,
             checked: [],
         });
     }
@@ -71,7 +71,7 @@ class Checkboxes extends Component {
                 <div className="checkboxes">
                     {checkboxes}
                 </div>
-                <Button value="none" classes="btn--send" onClick={() => this.state.onClick(this.state.checked)}/>
+                <Button value="none" classes="btn--send" onClick={() => this.state.sendAnswer(this.state.checked)}/>
                 <Button value="none" classes="btn--reset" onClick={() => this.resetBoxes()}/>
             </div>
         )

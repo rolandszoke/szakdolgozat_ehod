@@ -12,10 +12,11 @@ class Game extends Component {
             modifiers: props.modifiers, //kiválasztott nehézségi szintek
             currentGameData: null, //jelenlegi játék adatai
             flip: "game--noflip", //--noflip: játék felület mutatása; --flip: visszajelzési felület
-            front: " ", //játék felület ablakot módosító classok
+            front: "game__front--arcade", //játék felület ablakot módosító classok
             back: "game__back--wrong", //visszajelzési felületet módosító classok
             backContent: null, //visszajelzési felület tartalma
             correctAnswers: 0, //helyes válaszok számlálója
+            taskCounter: 0, //aktuális játékmódban feltett kérdések száma
             timer: setTimeout(function () { //időzítő a time játékmódhoz
             }, 900000),
             testCode: "", //teszt kódja
@@ -39,25 +40,25 @@ class Game extends Component {
             //első indítás
             let content = this.renderStartPage(); //üdvözlő felület
             this.setState({
-                back: "game__back--start", front: " ", backContent: content, correctAnswers: 0,
+                back: "game__back--start", front: "game__front--arcade", backContent: content, correctAnswers: 0, taskCounter: 0,
             });
             clearTimeout(this.state.timer); //időzítő nullázása
             this.getGames(props.gameMode, props.modifiers);
         } else {
             //válaszút játékmódok között
             if (props.gameMode[0] === "Időre") {
-                this.setState({front: "game__front--time", correctAnswers: 0});
+                this.setState({front: "game__front--time", correctAnswers: 0, taskCounter: 0,});
                 this.counter(); //időzítő beállítása
                 this.getGames(props.gameMode, props.modifiers); //játékok beállítása
             } else if (props.gameMode[0] === "Teszt") {
                 let content = this.renderTestInput(); //kód bemeneti felület biztosítása
                 this.setState({
                     flip: "game--flip", back: "game__back--test", front: "game__front--test",
-                    backContent: content, gameMode: "Test", correctAnswers: 0
+                    backContent: content, gameMode: "Test", correctAnswers: 0, taskCounter: 0,
                 });
                 clearTimeout(this.state.timer); //időzítő nullázása
             } else if (props.gameMode[0] === "Felfedező") {
-                this.setState({front: " "});
+                this.setState({front: "game__front--arcade"});
                 clearTimeout(this.state.timer); //időzítő nullázása
                 this.getGames(props.gameMode, props.modifiers); //játékok beállítása
             }
@@ -107,7 +108,8 @@ class Game extends Component {
                 this.setState({
                     back: "game__back--test",
                     backContent: <div className="testUI"><p className="testUI__text">Gratulálok, végeztél!</p><p
-                        className="testUI__text">Helyes válaszaid száma: {this.state.correctAnswers}</p></div>,
+                        className="testUI__text">{this.state.taskCounter} kérdésből a helyes válaszaid
+                        száma: {this.state.correctAnswers}</p></div>,
                     flip: "game--flip"
                 });
             } else {
@@ -134,7 +136,8 @@ class Game extends Component {
             timer: setTimeout(function () {
                 _this.setState({
                     back: "game__back--info",
-                    backContent: "Lejárt az időd! Helyes válaszaid száma: " + _this.state.correctAnswers,
+                    backContent: <div><p>Lejárt az időd! </p><p>{_this.state.taskCounter} kérdésből a helyes válaszaid
+                        száma: {_this.state.correctAnswers}</p></div>,
                     flip: "game--flip"
                 });
             }, 1200000) //időzítő hossza: 60000 = 1 perc; 1200000= 20 perc
@@ -150,18 +153,24 @@ class Game extends Component {
                 back: "game__back--right",
                 backContent: <img src="src/svg/check.svg"/>,
                 correctAnswers: this.state.correctAnswers + 1,
+                taskCounter: this.state.taskCounter + 1,
                 flip: "game--flip"
             }); //helyes
         } else {
-            this.setState({back: "game__back--wrong", backContent: "X", flip: "game--flip"}); //helytelen
+            this.setState({
+                back: "game__back--wrong",
+                backContent: "X",
+                flip: "game--flip",
+                taskCounter: this.state.taskCounter + 1
+            }); //helytelen
         }
         if (this.state.gameMode[0] === "Időre" || this.state.gameMode[0] === "Teszt") {
-            //időre játszásnál  vagy tesztnél 0,75 másodperc múlva azonnal kapjuk az új játékot (nem kattintásra történi a játék váltás)
+            //időre játszásnál  vagy tesztnél 1 másodperc múlva azonnal kapjuk az új játékot (nem kattintásra történi a játék váltás)
             let _this = this;
             setTimeout(
                 function () {
                     _this.newGame(_this.state.selectableGames, _this.state.gameMode, _this.state.modifiers)
-                }, 750);
+                }, 1000);
         }
     }
 
@@ -186,7 +195,8 @@ class Game extends Component {
             <div className="startUI">
                 <p className="startUI__welcome">Üdvözöllek az e-Hód interaktív alkalmazásában!</p>
                 <p className="startUI__info">*A beállításokat a bal és jobb oldali nyitható menükben találod meg.</p>
-                <p className="startUI__info">További információkat a E-HOD cím feletti szürke gombra kattintva olvashatsz!</p>
+                <p className="startUI__info">További információkat a E-HOD cím feletti szürke gombra kattintva
+                    olvashatsz!</p>
                 <div className="startUI__start"
                      onClick={() => this.setState({flip: "game--noflip"})}>Indítás
                 </div>
@@ -199,7 +209,7 @@ class Game extends Component {
         return (
             <div className="testUI">
                 <p className="testUI__text">Adja meg a teszt kódját:</p>
-                <input type="text" className="testUI__input" onChange={this.changeCode.bind(this)}/>
+                <input type="text" className="testUI__input" onChange={this.changeCode.bind(this)} onClick={this.changeCode.bind(this)}/>
                 <div className="testUI__send"
                      onClick={() => this.getGames(["Teszt", "Összes"], ["Könnyű", "Közepes", "Nehéz"])}>Küldés
                 </div>
@@ -219,7 +229,7 @@ class Game extends Component {
         });
 
         //amennyiben nem felfedezőbe játszunk kattintásra nem kapunk új játékot, hasonlóan a kezdő üdvözlésnél
-        let backClickEvent = (this.state.gameMode[0] === "Felfedező" && this.state.back !=="game__back--start") ?
+        let backClickEvent = (this.state.gameMode[0] === "Felfedező" && this.state.back !== "game__back--start") ?
             () => this.newGame(this.state.selectableGames, this.state.gameMode, this.state.modifiers)
             : () => "";
 

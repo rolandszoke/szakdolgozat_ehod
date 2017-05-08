@@ -7,7 +7,7 @@ class Buttons extends Component {
         super(props);
         this.state = {
             answerImages: props.answerImages, //gombokhoz tartozó képek
-            onClick: props.onClick, //gombokra kattintás metódusa
+            sendAnswer: props.onClick, //válasz küldés metódusa
             multiple: props.multiple, //paraméter, mely megadja, hogy csak egy vagy több gombot lehet megnyomni a válaszadáshoz
             multiplePressed: [], //megnyomott gombok
         };
@@ -17,7 +17,7 @@ class Buttons extends Component {
         //új játéknél adatok alaphelyzetbe állítása
         this.setState({
             answerImages: nextProps.answerImages,
-            onClick: nextProps.onClick,
+            sendAnswer: nextProps.onClick,
             multiple: nextProps.multiple,
             multiplePressed: []
         });
@@ -47,7 +47,7 @@ class Buttons extends Component {
                            onClick={() => this.multipleClick(i)}/>;
         } else { //egyszeres gomb lenyomás
             return <Button key={i} value={this.state.answerImages[i]} classes=""
-                           onClick={() => this.state.onClick([i])}/>;
+                           onClick={() => this.state.sendAnswer([i])}/>;
         }
     }
 
@@ -67,7 +67,7 @@ class Buttons extends Component {
         //küldés és nullázás gomb elkészítése
         if (this.state.multiple === true) {
             buttons2.push(<Button key="send" value="none" classes="btn--send"
-                                  onClick={() => this.state.onClick(this.state.multiplePressed)}/>,
+                                  onClick={() => this.state.sendAnswer(this.state.multiplePressed)}/>,
                 <Button key="reset" value="none" classes="btn--reset"
                         onClick={() => this.resetButtons()}/>);
         }
