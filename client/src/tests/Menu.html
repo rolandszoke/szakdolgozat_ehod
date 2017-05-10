@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://localhost:8080/" />
+<title>Menu</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Menu</td></tr>
+</thead><tbody>
+<tr>
+	<td>refresh</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=menu__open</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=li.menu__item.menu__item--Időre &gt; label &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.game__front--time</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=li.menu__item.menu__item--Teszt &gt; label &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.game__back.game__back--test</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=label &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.game__front--arcade</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;checkbox&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyChecked</td>
+	<td>css=input[type=&quot;checkbox&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;checkbox&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=li.menu__item.menu__item--Kishód &gt; label &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=h3.level</td>
+	<td>*Kishód*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=li.menu__item.menu__item--Benjamin &gt; label &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=h3.level</td>
+	<td>*Benjamin*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=li.menu__item.menu__item--Kadét &gt; label &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=h3.level</td>
+	<td>*Kadét*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=li.menu__item.menu__item--Junior &gt; label &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=h3.level</td>
+	<td>*Junior*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=li.menu__item.menu__item--Senior &gt; label &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=h3.level</td>
+	<td>*Senior*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=nav.menu.menu--right &gt; #menu__open</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=nav.menu.menu--right &gt; li.menu__item &gt; label</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='root']/div/div/nav[2]/li[2]/label</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=h3.level</td>
+	<td>*Senior - Nehéz*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='root']/div/div/nav[2]/li[2]/label</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='root']/div/div/nav[2]/li[3]/label</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=h3.level</td>
+	<td>*Senior - Közepes*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=nav.menu.menu--right &gt; li.menu__item &gt; label</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='root']/div/div/nav[2]/li[2]/label</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=li.menu__item.menu__item--Kishód &gt; label &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=h3.level</td>
+	<td>*Kishód - Könnyű*</td>
+</tr>
+</tbody></table>
+</body>
+</html>
